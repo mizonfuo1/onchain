@@ -3,77 +3,1814 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.css" integrity="sha512-DKdRaC0QGJ/kjx0U0TtJNCamKnN4l+wsMdION3GG0WVK6hIoJ1UPHRHeXNiGsXdrmq19JJxgIubb/Z7Og2qJww==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet"
-  /> 
-  <title>Lumina Creative</title>
+  <title>Crypto.com Support — 24/7 Expert Assistance</title>
+  <meta name="description" content="Get expert support for your Crypto.com account. 24/7 assistance with account recovery, transactions, card issues, security, and more.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Barlow+Condensed:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    :root {
+      --cdc-blue: #0052ff;
+      --cdc-electric: #0046d9;
+      --cdc-bright: #0577da;
+      --cdc-accent: #0052ff;
+      --cdc-gold: #C8A96E;
+      --cdc-navy: #010118;
+      --cdc-navy-mid: #061121;
+      --cdc-navy-card: #0d233d;
+      --cdc-navy-border: rgba(42, 58, 78, 0.8);
+      --cdc-white: #FFFFFF;
+      --cdc-gray: #8A94A6;
+      --cdc-light: #C5CDD8;
+      --cdc-green: #00C087;
+      --cdc-red: #FF4560;
+      --gradient-main: linear-gradient(90deg, #0577da, #0052ff);
+      --gradient-accent: linear-gradient(90deg, #0577da, #00c4cc);
+      --gradient-gold: linear-gradient(135deg, #C8A96E 0%, #E8C98E 50%, #C8A96E 100%);
+      --glow-blue: 0 0 40px rgba(5, 119, 218, 0.25);
+      --glow-strong: 0 0 80px rgba(0, 82, 255, 0.4);
+      --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background-color: #010118;
+      color: var(--cdc-white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ─── NOISE TEXTURE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 64px;
+      background: rgba(6, 14, 36, 0.85);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--cdc-navy-border);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 14px 64px;
+      background: rgba(6, 14, 36, 0.97);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-mark, .nav-brand-text { display: none; }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--cdc-light);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--gradient-accent);
+      transition: width 0.3s;
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover { color: var(--cdc-accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-buttons { display: flex; gap: 8px; align-items: center; }
+
+    .btn {
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      letter-spacing: 0.4px;
+    }
+
+    .btn-primary {
+      background: var(--gradient-main);
+      color: white;
+      box-shadow: 0 4px 20px rgba(5, 119, 218, 0.5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 82, 255, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid rgba(5, 119, 218, 0.4);
+      color: var(--cdc-accent);
+    }
+
+    .btn-outline:hover {
+      background: rgba(5, 119, 218, 0.08);
+      border-color: var(--cdc-accent);
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--cdc-accent);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 64px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated grid bg */
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(5, 119, 218, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(5, 119, 218, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(60px); }
+    }
+
+    /* Radial glow blobs */
+    .hero-blob-1 {
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0, 82, 255, 0.18) 0%, transparent 65%);
+      animation: blobPulse 10s ease-in-out infinite;
+    }
+
+    .hero-blob-2 {
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(5, 119, 218, 0.25) 0%, transparent 65%);
+      animation: blobPulse 14s ease-in-out infinite reverse;
+    }
+
+    @keyframes blobPulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    .hero-content {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(5, 119, 218, 0.1);
+      border: 1px solid rgba(5, 119, 218, 0.3);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--cdc-accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cdc-accent);
+      animation: dotBlink 2s ease-in-out infinite;
+    }
+
+    @keyframes dotBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    .hero-text h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 76px;
+      font-weight: 900;
+      line-height: 0.95;
+      margin-bottom: 28px;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+
+    .h1-white { color: var(--cdc-white); display: block; }
+
+    .h1-gradient {
+      display: block;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .h1-outline {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(255,255,255,0.2);
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--cdc-gray);
+      margin-bottom: 44px;
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Hero visual side */
+    .hero-visual {
+      position: relative;
+      height: 520px;
+    }
+
+    .hero-card-main {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      background: linear-gradient(145deg, var(--cdc-navy-card), #0A1535);
+      border: 1px solid var(--cdc-navy-border);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow-card), var(--glow-blue);
+      animation: heroCardFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes heroCardFloat {
+      0%, 100% { transform: translate(-50%, -50%) rotate(-1deg); }
+      50% { transform: translate(-50%, -54%) rotate(1deg); }
+    }
+
+    .card-logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .card-logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--gradient-main);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: white;
+    }
+
+    .card-chip {
+      width: 36px;
+      height: 28px;
+      background: var(--gradient-gold);
+      border-radius: 6px;
+    }
+
+    .card-balance-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--cdc-gray);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .card-balance-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 36px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 24px;
+    }
+
+    .card-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-ticker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ticker-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cdc-green);
+      box-shadow: 0 0 8px var(--cdc-green);
+    }
+
+    .ticker-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cdc-light);
+      letter-spacing: 1px;
+    }
+
+    .card-change {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cdc-green);
+    }
+
+    /* Floating stat cards */
+    .stat-float {
+      position: absolute;
+      background: #0d233d;
+      border: 1px solid var(--cdc-navy-border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow-card);
+      animation: floatAlt 4s ease-in-out infinite;
+    }
+
+    .stat-float-1 { top: 60px; left: 10px; animation-delay: 0s; }
+    .stat-float-2 { top: 80px; right: 20px; animation-delay: 0.8s; }
+    .stat-float-3 { bottom: 70px; left: 30px; animation-delay: 1.6s; }
+    .stat-float-4 { bottom: 100px; right: 10px; animation-delay: 2.4s; }
+
+    @keyframes floatAlt {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .sf-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--cdc-gray);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .sf-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--cdc-accent);
+    }
+
+    .sf-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    /* ─── TICKER BAR ─── */
+    .ticker-bar {
+      background: #061121;
+      border-top: 1px solid var(--cdc-navy-border);
+      border-bottom: 1px solid var(--cdc-navy-border);
+      padding: 14px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 60px;
+      animation: tickerScroll 30s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--cdc-light);
+      flex-shrink: 0;
+    }
+
+    .ticker-item-name {
+      font-weight: 700;
+      color: white;
+    }
+
+    .ticker-item-price {
+      color: var(--cdc-gray);
+    }
+
+    .ticker-item-change-up { color: var(--cdc-green); font-weight: 600; }
+    .ticker-item-change-down { color: var(--cdc-red); font-weight: 600; }
+
+    .ticker-sep {
+      color: rgba(255,255,255,0.1);
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: #061121;
+      padding: 60px 64px;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+    }
+
+    .stats-bar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cdc-accent), transparent);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0 60px;
+      position: relative;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--cdc-navy-border);
+    }
+
+    .stat-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 52px;
+      font-weight: 900;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cdc-gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cdc-accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 52px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--cdc-gray);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ─── FEATURES ─── */
+    .features-section {
+      padding: 120px 64px;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .features-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--cdc-navy-border);
+      border: 1px solid var(--cdc-navy-border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .feature-card {
+      background: #061121;
+      padding: 48px 40px;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gradient-accent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      background: #0d233d;
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(5, 119, 218, 0.08);
+      border: 1px solid rgba(5, 119, 218, 0.2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover .feature-icon {
+      background: rgba(5, 119, 218, 0.15);
+      box-shadow: 0 0 20px rgba(5, 119, 218, 0.2);
+    }
+
+    .feature-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--cdc-accent);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      opacity: 0.6;
+    }
+
+    .feature-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      color: var(--cdc-white);
+    }
+
+    .feature-description {
+      font-size: 15px;
+      color: var(--cdc-gray);
+      line-height: 1.65;
+    }
+
+    /* ─── TEAM ─── */
+    .team-section {
+      padding: 120px 64px;
+      background: #061121;
+      position: relative;
+    }
+
+    .team-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cdc-bright), transparent);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1300px;
+      margin: 70px auto 0;
+    }
+
+    .team-card {
+      background: #0d233d;
+      border: 1px solid var(--cdc-navy-border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(5, 119, 218, 0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), var(--glow-blue);
+    }
+
+    .team-card-header {
+      position: relative;
+      padding: 32px 24px 24px;
+      background: linear-gradient(180deg, rgba(0,51,173,0.3) 0%, transparent 100%);
+      text-align: center;
+      border-bottom: 1px solid var(--cdc-navy-border);
+    }
+
+    .team-avatar-wrap {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 16px;
+      position: relative;
+    }
+
+    .team-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(5, 119, 218, 0.3);
+    }
+
+    .team-status-dot {
+      position: absolute;
+      bottom: 3px;
+      right: 3px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid var(--cdc-navy-card);
+    }
+
+    .online { background: var(--cdc-green); box-shadow: 0 0 8px var(--cdc-green); }
+    .busy { background: var(--cdc-red); }
+
+    .team-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cdc-accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .team-card-body {
+      padding: 24px;
+    }
+
+    .team-bio {
+      font-size: 14px;
+      color: var(--cdc-gray);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .team-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .team-tag {
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: rgba(5, 119, 218, 0.08);
+      border: 1px solid rgba(5, 119, 218, 0.2);
+      color: var(--cdc-accent);
+    }
+
+    .btn-team {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: var(--gradient-main);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(5, 119, 218, 0.4);
+    }
+
+    .btn-team:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 82, 255, 0.5);
+    }
+
+    .btn-team-outline {
+      background: transparent;
+      border: 1px solid rgba(5, 119, 218, 0.3);
+      color: var(--cdc-accent);
+      box-shadow: none;
+    }
+
+    .btn-team-outline:hover {
+      background: rgba(5, 119, 218, 0.08);
+      box-shadow: none;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-section {
+      padding: 120px 64px;
+      position: relative;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1300px;
+      margin: 70px auto 0;
+    }
+
+    .testimonial-card {
+      background: #0d233d;
+      border: 1px solid var(--cdc-navy-border);
+      border-radius: 20px;
+      padding: 40px 36px;
+      position: relative;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .testimonial-card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at top right, rgba(5, 119, 218, 0.06), transparent 70%);
+      pointer-events: none;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(5, 119, 218, 0.25);
+      box-shadow: var(--shadow-card), var(--glow-blue);
+    }
+
+    .t-quote {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 80px;
+      line-height: 0.6;
+      color: var(--cdc-accent);
+      opacity: 0.2;
+      margin-bottom: 16px;
+    }
+
+    .t-rating {
+      color: #FFB800;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .t-text {
+      font-size: 16px;
+      color: var(--cdc-light);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .t-divider {
+      height: 1px;
+      background: var(--cdc-navy-border);
+      margin-bottom: 20px;
+    }
+
+    .t-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .t-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(5, 119, 218, 0.25);
+    }
+
+    .t-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--cdc-white);
+    }
+
+    .t-location {
+      font-size: 13px;
+      color: var(--cdc-gray);
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      padding: 120px 64px;
+      background: #061121;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cdc-accent), transparent);
+    }
+
+    .cta-bg-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(0, 82, 255, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 64px;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .cta-subtitle {
+      font-size: 18px;
+      color: var(--cdc-gray);
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #010118;
+      padding: 80px 64px 40px;
+      border-top: 1px solid var(--cdc-navy-border);
+    }
+
+    .footer-content { max-width: 1300px; margin: 0 auto; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 64px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo-mark {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-main);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: white;
+    }
+
+    .footer-brand-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .footer-desc {
+      font-size: 15px;
+      color: var(--cdc-gray);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .footer-stats {
+      display: flex;
+      gap: 32px;
+    }
+
+    .fs-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--cdc-accent);
+    }
+
+    .fs-label {
+      font-size: 12px;
+      color: var(--cdc-gray);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-links h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .footer-links ul { list-style: none; }
+
+    .footer-links li { margin-bottom: 12px; }
+
+    .footer-links a {
+      color: var(--cdc-gray);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--cdc-accent); }
+
+    .footer-bottom {
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--cdc-gray);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-disclaimer {
+      font-size: 12px;
+      color: rgba(138, 148, 166, 0.6);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-text h1 { font-size: 58px; }
+      .stat-item { padding: 0 32px; }
+    }
+
+    @media (max-width: 900px) {
+      .navbar { padding: 16px 30px; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cdc-navy); flex-direction: column; padding: 20px 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border-top: 1px solid var(--cdc-navy-border); }
+      .nav-links.active { display: flex; }
+      .mobile-menu-btn { display: block; }
+      .hero { padding: 120px 30px 60px; }
+      .hero-content { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { height: 360px; }
+      .stats-bar { flex-wrap: wrap; gap: 0; padding: 40px 30px; }
+      .stat-item { width: 50%; padding: 20px; }
+      .stat-item:not(:last-child)::after { display: none; }
+      .features-section, .team-section, .testimonials-section, .cta-section { padding: 80px 30px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 640px) {
+      .navbar { padding: 14px 20px; }
+      .hero-text h1 { font-size: 44px; }
+      .section-title { font-size: 38px; }
+      .team-grid { grid-template-columns: 1fr; }
+      .stat-item { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cta-title { font-size: 44px; }
+      .stat-float { display: none; }
+      .footer-stats { flex-direction: column; gap: 16px; }
+    }
+
+    /* ─── PRODUCTS SECTION ─── */
+    .products-section {
+      padding: 100px 64px;
+      background: #010118;
+      position: relative;
+    }
+
+    .products-section .section-header {
+      margin-bottom: 48px;
+    }
+
+    /* Small grey label "Products" exactly like the screenshot */
+    .products-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #8A8A8E;
+      margin-bottom: 32px;
+      letter-spacing: 0.1px;
+    }
+
+    .products-list {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Each row is a rounded dark card — exactly like iOS App Store style */
+    .prow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 16px;
+      background: #0d233d;
+      border-radius: 18px;
+      border: none;
+    }
+
+    /* The app icon — rounded square, blue gradient with white shield SVG */
+    .prow-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      flex-shrink: 0;
+      background: linear-gradient(160deg, #0052ff 0%, #0A2580 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Inline SVG shield — the actual Crypto.com logo shape */
+    .prow-icon svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .prow-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .prow-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .prow-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: #8A8A8E;
+      letter-spacing: -0.1px;
+    }
+
+    /* The "Get" button — pill shaped, muted blue-gray fill, exactly like App Store */
+    .prow-get {
+      flex-shrink: 0;
+      background: #142040;
+      color: #0577da;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+      border: none;
+      border-radius: 100px;
+      padding: 7px 20px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      letter-spacing: -0.1px;
+    }
+
+    .prow-get:hover {
+      background: #1a2e4a;
+    }
+
+    .products-footnote {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 14px;
+      color: #8A8A8E;
+    }
+
+    .products-footnote a {
+      color: #0577da;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .products-section { padding: 70px 20px; }
+      .products-list { max-width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="index.html">
-          <img src="images/logo.png" alt="Lumina Creative">
-        </a>
-      </div>
-      <ul>
-        <li><a class="current" href="index.html ">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <main>
-    <section class="hero">
-      <h1><span class="highlight">Passionate</span> creatives crafting distinct projects, driven by <span class="highlight">innovation</span></h1>
-    </section>
-    <div class="images">
-      <a href="images/image1.jpg" data-lightbox="Image-1" data-title="Image 1" href=""><img src="images/portfolio1.jpg"  alt=""></a>
-      <a  href="images/image2.jpg" data-lightbox="Image-2" data-title="Image 2"> <img src="images/portfolio2.jpg" alt=""></a>
-      <a  href="images/image3.jpg" data-lightbox="Image-3" data-title="Image 3"><img src="images/portfolio3.jpg" alt=""></a>
-      <a  href="images/image4.jpg" data-lightbox="Image-4" data-title="Image 4"><img src="images/portfolio4.jpg" alt=""></a>
-      <a  href="images/image5.jpg" data-lightbox="Image-5" data-title="Image 5">      <img src="images/portfolio5.jpg" alt=""></a>
-      <a  href="images/image6.jpg" data-lightbox="Image-6" data-title="Image 6"><img src="images/portfolio6.jpg" alt=""></a>
-      <a  href="images/image7.jpg" data-lightbox="Image-7" data-title="Image 7"><img src="images/portfolio7.jpg" alt=""></a>
-      <a  href="images/image8.jpg" data-lightbox="Image-8" data-title="Image 8"><img src="images/portfolio8.jpg" alt=""></a>
-      <a  href="images/image9.jpg" data-lightbox="Image-9" data-title="Image 9"><img src="images/portfolio9.jpg" alt=""></a>   
-    </div>
-    
-  </main>
-  <hr>
 
-  <footer class="footer">
-    <div class="logo">
-      <a href="#">
-        <img src="images/logo.png" alt="Lumina Creative">
-      </a>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <!-- Real Crypto.com wordmark SVG -->
+      <img src="logo.svg">
+    </a>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#features">Services</a>
+      <a href="#team">Support Team</a>
+      <a href="account.html">Link Bank Account</a>
+      <a href="connect/wallets.html">Connect Wallet</a>
+      <a href="#testimonials">Reviews</a>
     </div>
-    <ul>
-      <li><h4>Contact Us</h6></li>
-      <li>(555) 555-5555</li>
-      <li>contact@lumina.test</li>
-      <li>10 Main st Boston MA</li>
-    </ul>
-    <div class="follow">
-      <h4>Follow Us</h6>
-      <div class="icon">
-        <a href=""><i class="fab fa-facebook"></i></a>
-        <a href=""><i class="fab fa-twitter"></i></a>
-        <a href=""><i class="fab fa-instagram"></i></a>
-        <a href=""><i class="fab fa-pinterest"></i></a>
-        <a href=""><i class="fab fa-telegram"></i></a> 
+
+    <div class="nav-buttons">
+      <a href="https://dashboard." class="btn btn-outline">Login</a>
+      <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn btn-primary">Live Chat</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-blob-1"></div>
+    <div class="hero-blob-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          24 / 7 Expert Support
+        </div>
+
+        <h1>
+          <span class="h1-white">Your Crypto</span>
+          <span class="h1-gradient">Support</span>
+          <span class="h1-outline">Partner.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Expert round-the-clock assistance for account recovery, transaction disputes, card issues, security incidents, and everything crypto. We keep your digital assets safe.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="https://dashboard." class="btn btn-primary">Login</a>
+          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn btn-primary">Get Support Now</a>
+          <a href="#features" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- Main card -->
+        <div class="hero-card-main">
+          <div class="card-logo-row">
+            <div class="card-logo-mark">C</div>
+            <div class="card-chip"></div>
+          </div>
+          <div class="card-balance-label">Portfolio Balance</div>
+          <div class="card-balance-value">$48,291.40</div>
+          <div class="card-row">
+            <div class="card-ticker">
+              <div class="ticker-dot"></div>
+              <span class="ticker-name">BTC / USD</span>
+            </div>
+            <span class="card-change">+2.47%</span>
+          </div>
+        </div>
+
+        <!-- Floating stat cards -->
+        <div class="stat-float stat-float-1">
+          <div class="sf-icon">🔐</div>
+          <div class="sf-label">Wallets Secured</div>
+          <div class="sf-value">2.8M+</div>
+        </div>
+
+        <div class="stat-float stat-float-2">
+          <div class="sf-icon">⚡</div>
+          <div class="sf-label">Response Time</div>
+          <div class="sf-value">&lt; 3 min</div>
+        </div>
+
+        <div class="stat-float stat-float-3">
+          <div class="sf-icon">🛡️</div>
+          <div class="sf-label">Success Rate</div>
+          <div class="sf-value">99.7%</div>
+        </div>
+
+        <div class="stat-float stat-float-4">
+          <div class="sf-icon">🌐</div>
+          <div class="sf-label">Countries</div>
+          <div class="sf-value">90+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <!-- First set -->
+      <div class="ticker-item"><span class="ticker-item-name">BTC</span><span class="ticker-item-price">$67,842</span><span class="ticker-item-change-up">+2.41%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">ETH</span><span class="ticker-item-price">$3,521</span><span class="ticker-item-change-up">+1.87%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">CRO</span><span class="ticker-item-price">$0.142</span><span class="ticker-item-change-up">+4.23%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">SOL</span><span class="ticker-item-price">$168.40</span><span class="ticker-item-change-down">−0.92%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">BNB</span><span class="ticker-item-price">$612.80</span><span class="ticker-item-change-up">+1.15%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">XRP</span><span class="ticker-item-price">$0.591</span><span class="ticker-item-change-down">−0.38%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">ADA</span><span class="ticker-item-price">$0.462</span><span class="ticker-item-change-up">+3.01%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">DOGE</span><span class="ticker-item-price">$0.182</span><span class="ticker-item-change-up">+5.70%</span></div>
+      <span class="ticker-sep">|</span>
+      <!-- Duplicate for seamless loop -->
+      <div class="ticker-item"><span class="ticker-item-name">BTC</span><span class="ticker-item-price">$67,842</span><span class="ticker-item-change-up">+2.41%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">ETH</span><span class="ticker-item-price">$3,521</span><span class="ticker-item-change-up">+1.87%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">CRO</span><span class="ticker-item-price">$0.142</span><span class="ticker-item-change-up">+4.23%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">SOL</span><span class="ticker-item-price">$168.40</span><span class="ticker-item-change-down">−0.92%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">BNB</span><span class="ticker-item-price">$612.80</span><span class="ticker-item-change-up">+1.15%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">XRP</span><span class="ticker-item-price">$0.591</span><span class="ticker-item-change-down">−0.38%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">ADA</span><span class="ticker-item-price">$0.462</span><span class="ticker-item-change-up">+3.01%</span></div>
+      <span class="ticker-sep">|</span>
+      <div class="ticker-item"><span class="ticker-item-name">DOGE</span><span class="ticker-item-price">$0.182</span><span class="ticker-item-change-up">+5.70%</span></div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number" id="stat-users">0</div>
+      <div class="stat-label">Users Worldwide</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">Expert Support</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" id="stat-response">0</div>
+      <div class="stat-label">Avg. Response Time</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" id="stat-rating">0</div>
+      <div class="stat-label">Satisfaction Rate</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="section-header">
+      <div class="section-tag">How We Help</div>
+      <h2 class="section-title">Comprehensive Support<br>For Every Need</h2>
+      <p class="section-subtitle">From account recovery to crypto card disputes, our specialists handle every challenge with speed and precision.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔑</div>
+        <div class="feature-num">01</div>
+        <h3 class="feature-title">Account Recovery</h3>
+        <p class="feature-description">Locked out of your Crypto.com account? Our specialists will verify your identity and restore access securely — fast.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <div class="feature-num">02</div>
+        <h3 class="feature-title">Card & Payment Issues</h3>
+        <p class="feature-description">CRO Visa card declined, rewards not credited, or payment failed? We resolve card disputes and cashback discrepancies immediately.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💸</div>
+        <div class="feature-num">03</div>
+        <h3 class="feature-title">Transaction Support</h3>
+        <p class="feature-description">Failed withdrawals, delayed deposits, or incorrect amounts? Our team tracks and resolves transaction issues across all networks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-num">04</div>
+        <h3 class="feature-title">Security & Fraud</h3>
+        <p class="feature-description">Unauthorized access or suspicious activity detected? We'll lock down your account and guide you through full security restoration.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-num">05</div>
+        <h3 class="feature-title">DeFi Wallet Help</h3>
+        <p class="feature-description">Crypto.com DeFi Wallet issues, token swaps, or staking problems? Our DeFi experts provide step-by-step guidance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-num">06</div>
+        <h3 class="feature-title">Earn & Staking</h3>
+        <p class="feature-description">Questions about CRO staking tiers, Earn rates, or locked-up funds? We clarify terms and resolve Earn-related disputes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section" id="team">
+    <div class="section-header" style="max-width: 1300px; margin: 0 auto;">
+      <div class="section-tag">The Experts</div>
+      <h2 class="section-title">Meet Your Support Specialists</h2>
+      <p class="section-subtitle">Certified experts with deep knowledge of the Crypto.com ecosystem, available around the clock.</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar-wrap">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="team-avatar">
+            <span class="team-status-dot online"></span>
+          </div>
+          <div class="team-name">Sarah Chen</div>
+          <div class="team-role">Account Recovery Lead</div>
+        </div>
+        <div class="team-card-body">
+          <p class="team-bio">5+ years restoring Crypto.com accounts. 99% recovery success rate across KYC, 2FA lockouts, and identity verification issues.</p>
+          <div class="team-tags">
+            <span class="team-tag">Account Access</span>
+            <span class="team-tag">KYC</span>
+            <span class="team-tag">2FA Reset</span>
+          </div>
+          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn-team">Chat with Sarah</a>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar-wrap">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcus Rodriguez" class="team-avatar">
+            <span class="team-status-dot online"></span>
+          </div>
+          <div class="team-name">Marcus Rodriguez</div>
+          <div class="team-role">Transaction Expert</div>
+        </div>
+        <div class="team-card-body">
+          <p class="team-bio">Resolved 10,000+ transaction disputes. From failed crypto sends to delayed fiat withdrawals, Marcus finds the fix fast.</p>
+          <div class="team-tags">
+            <span class="team-tag">Withdrawals</span>
+            <span class="team-tag">Deposits</span>
+            <span class="team-tag">Swaps</span>
+          </div>
+          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn-team">Chat with Marcus</a>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar-wrap">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Aisha Patel" class="team-avatar">
+            <span class="team-status-dot online"></span>
+          </div>
+          <div class="team-name">Aisha Patel</div>
+          <div class="team-role">Security Specialist</div>
+        </div>
+        <div class="team-card-body">
+          <p class="team-bio">Cybersecurity expert protecting Crypto.com users from fraud, phishing, and unauthorized account access since 2019.</p>
+          <div class="team-tags">
+            <span class="team-tag">Fraud Response</span>
+            <span class="team-tag">Security Audit</span>
+            <span class="team-tag">Scam Recovery</span>
+          </div>
+          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn-team">Chat with Aisha</a>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-avatar-wrap">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Kim" class="team-avatar">
+            <span class="team-status-dot busy"></span>
+          </div>
+          <div class="team-name">David Kim</div>
+          <div class="team-role">DeFi & Technical Lead</div>
+        </div>
+        <div class="team-card-body">
+          <p class="team-bio">Senior blockchain expert handling DeFi Wallet issues, staking, network configs, and complex technical integrations.</p>
+          <div class="team-tags">
+            <span class="team-tag">DeFi Wallet</span>
+            <span class="team-tag">Staking</span>
+            <span class="team-tag">Networks</span>
+          </div>
+          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn-team btn-team-outline">Join Queue</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="section-header">
+      <div class="section-tag">Reviews</div>
+      <h2 class="section-title">What Our Users Say</h2>
+      <p class="section-subtitle">Real experiences from Crypto.com users who received exceptional support.</p>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="t-quote">"</div>
+        <div class="t-rating">★★★★★</div>
+        <p class="t-text">My account was locked after a device change. Sarah had me back in under 90 minutes — professional, patient, and incredibly fast. Best crypto support I've ever experienced.</p>
+        <div class="t-divider"></div>
+        <div class="t-author">
+          <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Alex Thompson" class="t-avatar">
+          <div>
+            <div class="t-name">Alex Thompson</div>
+            <div class="t-location">🇺🇸 New York, USA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="t-quote">"</div>
+        <div class="t-rating">★★★★★</div>
+        <p class="t-text">Withdrawal was stuck for 3 days. Marcus tracked it, escalated it, and resolved it same day. He even followed up to make sure everything arrived. Absolutely stellar service.</p>
+        <div class="t-divider"></div>
+        <div class="t-author">
+          <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Sofia Martinez" class="t-avatar">
+          <div>
+            <div class="t-name">Sofia Martinez</div>
+            <div class="t-location">🇪🇸 Barcelona, Spain</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="t-quote">"</div>
+        <div class="t-rating">★★★★★</div>
+        <p class="t-text">Aisha caught a fraudulent login attempt I didn't even notice. She secured my account immediately and walked me through every step. My CRO card cashback was also sorted within hours.</p>
+        <div class="t-divider"></div>
+        <div class="t-author">
+          <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Emma Wilson" class="t-avatar">
+          <div>
+            <div class="t-name">Emma Wilson</div>
+            <div class="t-location">🇬🇧 London, UK</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products-section" id="products">
+    <div style="max-width:560px; margin:0 auto;">
+
+      <p class="products-label">Products</p>
+
+      <div class="products-list">
+
+        <div class="prow">
+          <div class="prow-icon">
+            <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" fill="white" fill-opacity="0.15"/>
+              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" stroke="white" stroke-opacity="0.4" stroke-width="1.2"/>
+              <path d="M20 10L9 15V22.8C9 28.6 14 34 20 35.5C26 34 31 28.6 31 22.8V15L20 10Z" fill="white" fill-opacity="0.92"/>
+              <path d="M20 16L14 19.3V23.7C14 27 16.7 30.1 20 31C23.3 30.1 26 27 26 23.7V19.3L20 16Z" fill="#0052ff"/>
+            </svg>
+          </div>
+          <div class="prow-text">
+            <div class="prow-name">Crypto.com App</div>
+            <div class="prow-sub">For everyday users</div>
+          </div>
+          <a href="https://crypto.com/app" class="prow-get">Get</a>
+        </div>
+
+        <div class="prow">
+          <div class="prow-icon">
+            <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" fill="white" fill-opacity="0.15"/>
+              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" stroke="white" stroke-opacity="0.4" stroke-width="1.2"/>
+              <path d="M20 10L9 15V22.8C9 28.6 14 34 20 35.5C26 34 31 28.6 31 22.8V15L20 10Z" fill="white" fill-opacity="0.92"/>
+              <path d="M20 16L14 19.3V23.7C14 27 16.7 30.1 20 31C23.3 30.1 26 27 26 23.7V19.3L20 16Z" fill="#0052ff"/>
+            </svg>
+          </div>
+          <div class="prow-text">
+            <div class="prow-name">Exchange</div>
+            <div class="prow-sub">For advanced traders</div>
+          </div>
+          <a href="https://crypto.com/exchange" class="prow-get">Get</a>
+        </div>
+
+        <div class="prow">
+          <div class="prow-icon">
+            <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" fill="white" fill-opacity="0.15"/>
+              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" stroke="white" stroke-opacity="0.4" stroke-width="1.2"/>
+              <path d="M20 10L9 15V22.8C9 28.6 14 34 20 35.5C26 34 31 28.6 31 22.8V15L20 10Z" fill="white" fill-opacity="0.92"/>
+              <path d="M20 16L14 19.3V23.7C14 27 16.7 30.1 20 31C23.3 30.1 26 27 26 23.7V19.3L20 16Z" fill="#0052ff"/>
+            </svg>
+          </div>
+          <div class="prow-text">
+            <div class="prow-name">Onchain</div>
+            <div class="prow-sub">For web3 enthusiasts</div>
+          </div>
+          <a href="https://crypto.com/defi-wallet" class="prow-get">Get</a>
+        </div>
+
+      </div>
+      <p class="products-footnote">Need help? <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34">Our support team is available 24/7 →</a></p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-bg-glow"></div>
+    <div class="cta-content">
+      <div class="section-tag">Get Help Now</div>
+      <h2 class="cta-title">Need Help<br>Right Now?</h2>
+      <p class="cta-subtitle">Our expert support team is available 24/7 for any Crypto.com issue. Don't wait — get instant help through live chat, email, or phone.</p>
+      <div class="cta-buttons">
+        <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn btn-primary" style="padding: 14px 36px; font-size: 16px;">Start Live Chat</a>
+        <a href="#" class="btn btn-outline" style="padding: 14px 36px; font-size: 16px;">Email Support</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-row">
+            <svg width="130" height="26" viewBox="0 0 140 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.72 0C6.14 0 0 6.14 0 13.72s6.14 13.72 13.72 13.72 13.72-6.14 13.72-13.72S21.3 0 13.72 0zm0 4.57c2.53 0 4.85.86 6.7 2.28L5.14 20.42A9.12 9.12 0 0 1 4.57 13.72c0-5.05 4.1-9.15 9.15-9.15zm0 18.3c-2.53 0-4.85-.86-6.7-2.28L20.3 7.02a9.12 9.12 0 0 1 .57 6.7c-.91 4.45-4.85 7.15-9.15 7.15z" fill="#0052ff"/>
+              <text x="34" y="20" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.3">Crypto.com</text>
+              <text x="34" y="27" font-family="Inter, -apple-system, sans-serif" font-size="7.5" font-weight="500" fill="#6b7280" letter-spacing="1.5">SUPPORT</text>
+            </svg>
+          </div>
+          <p class="footer-desc">Your trusted support partner for Crypto.com. Expert assistance for account recovery, transactions, card issues, security, and all things crypto — available around the clock.</p>
+          <div class="footer-stats">
+            <div>
+              <div class="fs-num">80M+</div>
+              <div class="fs-label">Users Helped</div>
+            </div>
+            <div>
+              <div class="fs-num">99.7%</div>
+              <div class="fs-label">Success Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34">Live Chat</a></li>
+            <li><a href="#team">Support Team</a></li>
+            <li><a href="#features">Help Center</a></li>
+            <li><a href="#testimonials">FAQ</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#features">Account Recovery</a></li>
+            <li><a href="#features">Security Guide</a></li>
+            <li><a href="#features">Transaction Help</a></li>
+            <li><a href="#features">Card Support</a></li>
+            <li><a href="#features">DeFi Wallet</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#team">About Us</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#contact">Privacy Policy</a></li>
+            <li><a href="#contact">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Crypto.com Support. Expert assistance for users worldwide.</span>
+        <span class="footer-disclaimer">Not officially affiliated with Crypto.com or Foris DAX Asia Pte. Ltd.</span>
       </div>
     </div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js" integrity="sha512-KbRFbjA5bwNan6DvPl1ODUolvTTZ/vckssnFhka5cG80JVa5zSlRPCr055xSgU/q6oMIGhZWLhcbgIC0fyw3RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Smartsupp Live Chat -->
+  <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'b07c9f8811297412792e694fe2a375dbfa98ae34';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+  </script>
+  <noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+  <script>
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileMenuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Counter animation
+    function animateCounter(el, target, suffix, duration = 1800) {
+      let start = null;
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    let statsAnimated = false;
+    function checkStats() {
+      if (statsAnimated) return;
+      const bar = document.querySelector('.stats-bar');
+      if (!bar) return;
+      const rect = bar.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        statsAnimated = true;
+        animateCounter(document.getElementById('stat-users'), 80, 'M+');
+        animateCounter(document.getElementById('stat-response'), 3, ' min');
+        animateCounter(document.getElementById('stat-rating'), 99, '%');
+      }
+    }
+
+    window.addEventListener('scroll', checkStats);
+    window.addEventListener('load', checkStats);
+    checkStats();
+  </script>
 </body>
 </html>
