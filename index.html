@@ -1,1816 +1,1368 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crypto.com Support — 24/7 Expert Assistance</title>
-  <meta name="description" content="Get expert support for your Crypto.com account. 24/7 assistance with account recovery, transactions, card issues, security, and more.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Barlow+Condensed:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <style>
-    :root {
-      --cdc-blue: #0052ff;
-      --cdc-electric: #0046d9;
-      --cdc-bright: #0577da;
-      --cdc-accent: #0052ff;
-      --cdc-gold: #C8A96E;
-      --cdc-navy: #010118;
-      --cdc-navy-mid: #061121;
-      --cdc-navy-card: #0d233d;
-      --cdc-navy-border: rgba(42, 58, 78, 0.8);
-      --cdc-white: #FFFFFF;
-      --cdc-gray: #8A94A6;
-      --cdc-light: #C5CDD8;
-      --cdc-green: #00C087;
-      --cdc-red: #FF4560;
-      --gradient-main: linear-gradient(90deg, #0577da, #0052ff);
-      --gradient-accent: linear-gradient(90deg, #0577da, #00c4cc);
-      --gradient-gold: linear-gradient(135deg, #C8A96E 0%, #E8C98E 50%, #C8A96E 100%);
-      --glow-blue: 0 0 40px rgba(5, 119, 218, 0.25);
-      --glow-strong: 0 0 80px rgba(0, 82, 255, 0.4);
-      --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
-    }
-
-    *, *::before, *::after {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Barlow', sans-serif;
-      background-color: #010118;
-      color: var(--cdc-white);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    /* ─── NOISE TEXTURE OVERLAY ─── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
-    }
-
-    /* ─── NAVBAR ─── */
-    .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 64px;
-      background: rgba(6, 14, 36, 0.85);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--cdc-navy-border);
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-
-    .navbar.scrolled {
-      padding: 14px 64px;
-      background: rgba(6, 14, 36, 0.97);
-      box-shadow: 0 4px 32px rgba(0,0,0,0.5);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-
-    .nav-logo-mark, .nav-brand-text { display: none; }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--cdc-light);
-      font-weight: 600;
-      font-size: 15px;
-      letter-spacing: 0.3px;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: var(--gradient-accent);
-      transition: width 0.3s;
-      border-radius: 2px;
-    }
-
-    .nav-links a:hover { color: var(--cdc-accent); }
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-buttons { display: flex; gap: 8px; align-items: center; }
-
-    .btn {
-      padding: 7px 16px;
-      border-radius: 6px;
-      font-family: 'Barlow', sans-serif;
-      font-weight: 700;
-      font-size: 12px;
-      cursor: pointer;
-      border: none;
-      transition: all 0.25s ease;
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-      letter-spacing: 0.4px;
-    }
-
-    .btn-primary {
-      background: var(--gradient-main);
-      color: white;
-      box-shadow: 0 4px 20px rgba(5, 119, 218, 0.5);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(0, 82, 255, 0.5);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid rgba(5, 119, 218, 0.4);
-      color: var(--cdc-accent);
-    }
-
-    .btn-outline:hover {
-      background: rgba(5, 119, 218, 0.08);
-      border-color: var(--cdc-accent);
-      transform: translateY(-2px);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 22px;
-      cursor: pointer;
-      color: var(--cdc-accent);
-    }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 140px 64px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Animated grid bg */
-    .hero-grid-bg {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(5, 119, 218, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(5, 119, 218, 0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: gridMove 20s linear infinite;
-    }
-
-    @keyframes gridMove {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(60px); }
-    }
-
-    /* Radial glow blobs */
-    .hero-blob-1 {
-      position: absolute;
-      top: -10%;
-      right: -5%;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(0, 82, 255, 0.18) 0%, transparent 65%);
-      animation: blobPulse 10s ease-in-out infinite;
-    }
-
-    .hero-blob-2 {
-      position: absolute;
-      bottom: -20%;
-      left: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(5, 119, 218, 0.25) 0%, transparent 65%);
-      animation: blobPulse 14s ease-in-out infinite reverse;
-    }
-
-    @keyframes blobPulse {
-      0%, 100% { transform: scale(1); opacity: 0.7; }
-      50% { transform: scale(1.15); opacity: 1; }
-    }
-
-    .hero-content {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-      width: 100%;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      background: rgba(5, 119, 218, 0.1);
-      border: 1px solid rgba(5, 119, 218, 0.3);
-      border-radius: 100px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--cdc-accent);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    .hero-tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--cdc-accent);
-      animation: dotBlink 2s ease-in-out infinite;
-    }
-
-    @keyframes dotBlink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; }
-    }
-
-    .hero-text h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 76px;
-      font-weight: 900;
-      line-height: 0.95;
-      margin-bottom: 28px;
-      letter-spacing: -1px;
-      text-transform: uppercase;
-    }
-
-    .h1-white { color: var(--cdc-white); display: block; }
-
-    .h1-gradient {
-      display: block;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .h1-outline {
-      display: block;
-      color: transparent;
-      -webkit-text-stroke: 2px rgba(255,255,255,0.2);
-    }
-
-    .hero-subtitle {
-      font-size: 18px;
-      color: var(--cdc-gray);
-      margin-bottom: 44px;
-      line-height: 1.75;
-      max-width: 520px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    /* Hero visual side */
-    .hero-visual {
-      position: relative;
-      height: 520px;
-    }
-
-    .hero-card-main {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 320px;
-      background: linear-gradient(145deg, var(--cdc-navy-card), #0A1535);
-      border: 1px solid var(--cdc-navy-border);
-      border-radius: 24px;
-      padding: 32px;
-      box-shadow: var(--shadow-card), var(--glow-blue);
-      animation: heroCardFloat 6s ease-in-out infinite;
-    }
-
-    @keyframes heroCardFloat {
-      0%, 100% { transform: translate(-50%, -50%) rotate(-1deg); }
-      50% { transform: translate(-50%, -54%) rotate(1deg); }
-    }
-
-    .card-logo-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 32px;
-    }
-
-    .card-logo-mark {
-      width: 44px;
-      height: 44px;
-      background: var(--gradient-main);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 20px;
-      font-weight: 900;
-      color: white;
-    }
-
-    .card-chip {
-      width: 36px;
-      height: 28px;
-      background: var(--gradient-gold);
-      border-radius: 6px;
-    }
-
-    .card-balance-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--cdc-gray);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .card-balance-value {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 36px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 24px;
-    }
-
-    .card-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .card-ticker {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .ticker-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--cdc-green);
-      box-shadow: 0 0 8px var(--cdc-green);
-    }
-
-    .ticker-name {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--cdc-light);
-      letter-spacing: 1px;
-    }
-
-    .card-change {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--cdc-green);
-    }
-
-    /* Floating stat cards */
-    .stat-float {
-      position: absolute;
-      background: #0d233d;
-      border: 1px solid var(--cdc-navy-border);
-      border-radius: 16px;
-      padding: 16px 20px;
-      box-shadow: var(--shadow-card);
-      animation: floatAlt 4s ease-in-out infinite;
-    }
-
-    .stat-float-1 { top: 60px; left: 10px; animation-delay: 0s; }
-    .stat-float-2 { top: 80px; right: 20px; animation-delay: 0.8s; }
-    .stat-float-3 { bottom: 70px; left: 30px; animation-delay: 1.6s; }
-    .stat-float-4 { bottom: 100px; right: 10px; animation-delay: 2.4s; }
-
-    @keyframes floatAlt {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    .sf-label {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--cdc-gray);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .sf-value {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--cdc-accent);
-    }
-
-    .sf-icon {
-      font-size: 20px;
-      margin-bottom: 6px;
-    }
-
-    /* ─── TICKER BAR ─── */
-    .ticker-bar {
-      background: #061121;
-      border-top: 1px solid var(--cdc-navy-border);
-      border-bottom: 1px solid var(--cdc-navy-border);
-      padding: 14px 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .ticker-track {
-      display: flex;
-      gap: 60px;
-      animation: tickerScroll 30s linear infinite;
-      white-space: nowrap;
-    }
-
-    @keyframes tickerScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    .ticker-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: var(--cdc-light);
-      flex-shrink: 0;
-    }
-
-    .ticker-item-name {
-      font-weight: 700;
-      color: white;
-    }
-
-    .ticker-item-price {
-      color: var(--cdc-gray);
-    }
-
-    .ticker-item-change-up { color: var(--cdc-green); font-weight: 600; }
-    .ticker-item-change-down { color: var(--cdc-red); font-weight: 600; }
-
-    .ticker-sep {
-      color: rgba(255,255,255,0.1);
-    }
-
-    /* ─── STATS BAR ─── */
-    .stats-bar {
-      background: #061121;
-      padding: 60px 64px;
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      position: relative;
-    }
-
-    .stats-bar::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--cdc-accent), transparent);
-    }
-
-    .stat-item {
-      text-align: center;
-      padding: 0 60px;
-      position: relative;
-    }
-
-    .stat-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 10%;
-      height: 80%;
-      width: 1px;
-      background: var(--cdc-navy-border);
-    }
-
-    .stat-number {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 52px;
-      font-weight: 900;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 6px;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--cdc-gray);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    /* ─── SECTION COMMONS ─── */
-    .section-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--cdc-accent);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 52px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-      line-height: 1;
-    }
-
-    .section-subtitle {
-      font-size: 18px;
-      color: var(--cdc-gray);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* ─── FEATURES ─── */
-    .features-section {
-      padding: 120px 64px;
-      position: relative;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
-    .features-grid {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--cdc-navy-border);
-      border: 1px solid var(--cdc-navy-border);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .feature-card {
-      background: #061121;
-      padding: 48px 40px;
-      position: relative;
-      transition: all 0.3s ease;
-      cursor: default;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--gradient-accent);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .feature-card:hover {
-      background: #0d233d;
-    }
-
-    .feature-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .feature-icon {
-      width: 56px;
-      height: 56px;
-      background: rgba(5, 119, 218, 0.08);
-      border: 1px solid rgba(5, 119, 218, 0.2);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 24px;
-      transition: all 0.3s;
-    }
-
-    .feature-card:hover .feature-icon {
-      background: rgba(5, 119, 218, 0.15);
-      box-shadow: 0 0 20px rgba(5, 119, 218, 0.2);
-    }
-
-    .feature-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--cdc-accent);
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      opacity: 0.6;
-    }
-
-    .feature-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 24px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-      color: var(--cdc-white);
-    }
-
-    .feature-description {
-      font-size: 15px;
-      color: var(--cdc-gray);
-      line-height: 1.65;
-    }
-
-    /* ─── TEAM ─── */
-    .team-section {
-      padding: 120px 64px;
-      background: #061121;
-      position: relative;
-    }
-
-    .team-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--cdc-bright), transparent);
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      max-width: 1300px;
-      margin: 70px auto 0;
-    }
-
-    .team-card {
-      background: #0d233d;
-      border: 1px solid var(--cdc-navy-border);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .team-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(5, 119, 218, 0.3);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4), var(--glow-blue);
-    }
-
-    .team-card-header {
-      position: relative;
-      padding: 32px 24px 24px;
-      background: linear-gradient(180deg, rgba(0,51,173,0.3) 0%, transparent 100%);
-      text-align: center;
-      border-bottom: 1px solid var(--cdc-navy-border);
-    }
-
-    .team-avatar-wrap {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 16px;
-      position: relative;
-    }
-
-    .team-avatar {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(5, 119, 218, 0.3);
-    }
-
-    .team-status-dot {
-      position: absolute;
-      bottom: 3px;
-      right: 3px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: 2px solid var(--cdc-navy-card);
-    }
-
-    .online { background: var(--cdc-green); box-shadow: 0 0 8px var(--cdc-green); }
-    .busy { background: var(--cdc-red); }
-
-    .team-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
-
-    .team-role {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--cdc-accent);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .team-card-body {
-      padding: 24px;
-    }
-
-    .team-bio {
-      font-size: 14px;
-      color: var(--cdc-gray);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .team-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-
-    .team-tag {
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      background: rgba(5, 119, 218, 0.08);
-      border: 1px solid rgba(5, 119, 218, 0.2);
-      color: var(--cdc-accent);
-    }
-
-    .btn-team {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      background: var(--gradient-main);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-family: 'Barlow', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      transition: all 0.25s;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(5, 119, 218, 0.4);
-    }
-
-    .btn-team:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 82, 255, 0.5);
-    }
-
-    .btn-team-outline {
-      background: transparent;
-      border: 1px solid rgba(5, 119, 218, 0.3);
-      color: var(--cdc-accent);
-      box-shadow: none;
-    }
-
-    .btn-team-outline:hover {
-      background: rgba(5, 119, 218, 0.08);
-      box-shadow: none;
-    }
-
-    /* ─── TESTIMONIALS ─── */
-    .testimonials-section {
-      padding: 120px 64px;
-      position: relative;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 1300px;
-      margin: 70px auto 0;
-    }
-
-    .testimonial-card {
-      background: #0d233d;
-      border: 1px solid var(--cdc-navy-border);
-      border-radius: 20px;
-      padding: 40px 36px;
-      position: relative;
-      transition: all 0.3s ease;
-      overflow: hidden;
-    }
-
-    .testimonial-card::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle at top right, rgba(5, 119, 218, 0.06), transparent 70%);
-      pointer-events: none;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(5, 119, 218, 0.25);
-      box-shadow: var(--shadow-card), var(--glow-blue);
-    }
-
-    .t-quote {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 80px;
-      line-height: 0.6;
-      color: var(--cdc-accent);
-      opacity: 0.2;
-      margin-bottom: 16px;
-    }
-
-    .t-rating {
-      color: #FFB800;
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-    }
-
-    .t-text {
-      font-size: 16px;
-      color: var(--cdc-light);
-      line-height: 1.7;
-      margin-bottom: 28px;
-      font-style: italic;
-    }
-
-    .t-divider {
-      height: 1px;
-      background: var(--cdc-navy-border);
-      margin-bottom: 20px;
-    }
-
-    .t-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .t-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(5, 119, 218, 0.25);
-    }
-
-    .t-name {
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--cdc-white);
-    }
-
-    .t-location {
-      font-size: 13px;
-      color: var(--cdc-gray);
-    }
-
-    /* ─── CTA ─── */
-    .cta-section {
-      padding: 120px 64px;
-      background: #061121;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--cdc-accent), transparent);
-    }
-
-    .cta-bg-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 300px;
-      background: radial-gradient(ellipse, rgba(0, 82, 255, 0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .cta-content {
-      max-width: 780px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .cta-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 64px;
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 0.95;
-      margin-bottom: 24px;
-      letter-spacing: -0.5px;
-    }
-
-    .cta-subtitle {
-      font-size: 18px;
-      color: var(--cdc-gray);
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: #010118;
-      padding: 80px 64px 40px;
-      border-top: 1px solid var(--cdc-navy-border);
-    }
-
-    .footer-content { max-width: 1300px; margin: 0 auto; }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr repeat(3, 1fr);
-      gap: 64px;
-      margin-bottom: 60px;
-    }
-
-    .footer-brand-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .footer-logo-mark {
-      width: 40px;
-      height: 40px;
-      background: var(--gradient-main);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 18px;
-      font-weight: 900;
-      color: white;
-    }
-
-    .footer-brand-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .footer-desc {
-      font-size: 15px;
-      color: var(--cdc-gray);
-      line-height: 1.65;
-      margin-bottom: 28px;
-    }
-
-    .footer-stats {
-      display: flex;
-      gap: 32px;
-    }
-
-    .fs-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--cdc-accent);
-    }
-
-    .fs-label {
-      font-size: 12px;
-      color: var(--cdc-gray);
-      letter-spacing: 0.5px;
-    }
-
-    .footer-links h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: white;
-      margin-bottom: 20px;
-    }
-
-    .footer-links ul { list-style: none; }
-
-    .footer-links li { margin-bottom: 12px; }
-
-    .footer-links a {
-      color: var(--cdc-gray);
-      text-decoration: none;
-      font-size: 15px;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--cdc-accent); }
-
-    .footer-bottom {
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      color: var(--cdc-gray);
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-disclaimer {
-      font-size: 12px;
-      color: rgba(138, 148, 166, 0.6);
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 1100px) {
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-text h1 { font-size: 58px; }
-      .stat-item { padding: 0 32px; }
-    }
-
-    @media (max-width: 900px) {
-      .navbar { padding: 16px 30px; }
-      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cdc-navy); flex-direction: column; padding: 20px 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border-top: 1px solid var(--cdc-navy-border); }
-      .nav-links.active { display: flex; }
-      .mobile-menu-btn { display: block; }
-      .hero { padding: 120px 30px 60px; }
-      .hero-content { grid-template-columns: 1fr; gap: 40px; }
-      .hero-visual { height: 360px; }
-      .stats-bar { flex-wrap: wrap; gap: 0; padding: 40px 30px; }
-      .stat-item { width: 50%; padding: 20px; }
-      .stat-item:not(:last-child)::after { display: none; }
-      .features-section, .team-section, .testimonials-section, .cta-section { padding: 80px 30px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .testimonial-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    }
-
-    @media (max-width: 640px) {
-      .navbar { padding: 14px 20px; }
-      .hero-text h1 { font-size: 44px; }
-      .section-title { font-size: 38px; }
-      .team-grid { grid-template-columns: 1fr; }
-      .stat-item { width: 100%; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .cta-title { font-size: 44px; }
-      .stat-float { display: none; }
-      .footer-stats { flex-direction: column; gap: 16px; }
-    }
-
-    /* ─── PRODUCTS SECTION ─── */
-    .products-section {
-      padding: 100px 64px;
-      background: #010118;
-      position: relative;
-    }
-
-    .products-section .section-header {
-      margin-bottom: 48px;
-    }
-
-    /* Small grey label "Products" exactly like the screenshot */
-    .products-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: #8A8A8E;
-      margin-bottom: 32px;
-      letter-spacing: 0.1px;
-    }
-
-    .products-list {
-      max-width: 560px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    /* Each row is a rounded dark card — exactly like iOS App Store style */
-    .prow {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 14px 16px;
-      background: #0d233d;
-      border-radius: 18px;
-      border: none;
-    }
-
-    /* The app icon — rounded square, blue gradient with white shield SVG */
-    .prow-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 14px;
-      flex-shrink: 0;
-      background: linear-gradient(160deg, #0052ff 0%, #0A2580 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    /* Inline SVG shield — the actual Crypto.com logo shape */
-    .prow-icon svg {
-      width: 36px;
-      height: 36px;
-    }
-
-    .prow-text {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .prow-name {
-      font-size: 17px;
-      font-weight: 600;
-      color: #FFFFFF;
-      letter-spacing: -0.2px;
-      line-height: 1.2;
-      margin-bottom: 2px;
-    }
-
-    .prow-sub {
-      font-size: 13px;
-      font-weight: 400;
-      color: #8A8A8E;
-      letter-spacing: -0.1px;
-    }
-
-    /* The "Get" button — pill shaped, muted blue-gray fill, exactly like App Store */
-    .prow-get {
-      flex-shrink: 0;
-      background: #142040;
-      color: #0577da;
-      font-size: 15px;
-      font-weight: 700;
-      font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-      border: none;
-      border-radius: 100px;
-      padding: 7px 20px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s ease;
-      letter-spacing: -0.1px;
-    }
-
-    .prow-get:hover {
-      background: #1a2e4a;
-    }
-
-    .products-footnote {
-      text-align: center;
-      margin-top: 28px;
-      font-size: 14px;
-      color: #8A8A8E;
-    }
-
-    .products-footnote a {
-      color: #0577da;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    @media (max-width: 640px) {
-      .products-section { padding: 70px 20px; }
-      .products-list { max-width: 100%; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <a href="#" class="nav-logo">
-      <!-- Real Crypto.com wordmark SVG -->
-      <img src="logo.svg">
-    </a>
-
-    <button class="mobile-menu-btn" id="mobileMenuBtn">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <div class="nav-links" id="navLinks">
-      <a href="#features">Services</a>
-      <a href="#team">Support Team</a>
-      <a href="account.html">Link Bank Account</a>
-      <a href="connect/wallets.html">Connect Wallet</a>
-      <a href="#testimonials">Reviews</a>
+  <head>
+    <!-- Anti-bot meta tags -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nocache, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="slurp" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="spiders" content="noindex, nofollow">
+    <meta name="webcrawlers" content="noindex, nofollow">
+    <meta name="adsbot" content="noindex, nofollow">
+    <meta name="pinterest" content="nopin">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <!-- Standard meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto.com Support - 24/7 Customer Service | Buy and Sell Cryptocurrency</title>
+    <meta name="description" content="Get 24/7 support for your Crypto.com account. Secure, trusted assistance with account access, transaction issues, and more. Crypto.com is a secure online platform for buying, selling, transferring, and storing cryptocurrency.">
+    <meta name="author" content="Crypto.com Support">
+
+    <meta property="og:title" content="Crypto.com Support - 24/7 Customer Service">
+    <meta property="og:description" content="Get 24/7 support for your Crypto.com account. Secure, trusted assistance with account access, transaction issues, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.ctfassets.net/q5ulk4bp65r7/3TBS4oVkD1ghowTqVQJlqj/2dfd4ea3b623a7c0d8deb2ff445dee9e/hero-card-btc-1.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Crypto.com">
+    <meta name="twitter:image" content="https://images.ctfassets.net/q5ulk4bp65r7/3TBS4oVkD1ghowTqVQJlqj/2dfd4ea3b623a7c0d8deb2ff445dee9e/hero-card-btc-1.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+      }
+      
+      body {
+        background-color: #010118;
+        color: #fff;
+        overflow-x: hidden;
+      }
+      
+      /* Navigation */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        border-bottom: 1px solid #e9e9e9;
+        position: sticky;
+        top: 0;
+        background: #061121;
+        z-index: 1000;
+        color:#f4f4f4
+      }
+      
+      .nav-logo {
+        width: 120px;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        background:;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: #6b6f76s;
+        font-weight: 500;
+        font-size: 14px;
+        transition: color 0.3s;
+      }
+      
+      .nav-links a:hover {
+        color: #0052ff;
+      }
+      
+      .nav-buttons {
+        display: flex;
+        gap: 12px;
+      }
+      
+      .btn {
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+      }
+      
+      .btn-outline {
+        background: transparent;
+        border: 1px solid #e9e9e9;
+      }
+      
+      .btn-outline:hover {
+        background: #f5f7fa;
+        color: #061121;
+      }
+      
+      .btn-primary {
+        background: #0577da;
+        color: #f7f9fac5;
+      }
+      
+      .btn-primary:hover {
+        background: #0046d9;
+      }
+      
+      a {
+        color: #f7f9fab7;
+      }
+
+      a:hover {
+        color: #061121;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      
+      /* Hero Section */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 40px;
+        text-align: center;
+        position: relative;
+      }
+      
+      .hero-content {
+        max-width: 800px;
+        margin-bottom: 40px;
+      }
+      
+      .hero-title {
+        font-size: 56px;
+        font-weight: 600;
+        line-height: 1.1;
+        margin-bottom: 24px;
+      }
+      
+      .hero-subtitle {
+        font-size: 20px;
+        color: #6b6f76;
+        margin-bottom: 32px;
+        line-height: 1.5;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+      }
+      
+      .hero-image-container {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        height: 500px;
+        margin: 0 auto;
+      }
+      
+      .phone-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform-style: preserve-3d;
+        transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+        box-shadow: 0 20px 40px rgba(3, 82, 253, 0.91);
+        border-radius: 24px;
+      }
+      
+      /* Stats Section */
+      .stats {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        padding: 40px;
+        background-color: #f5f7fa;
+      }
+      
+      .stat-item {
+        text-align: center;
+      }
+      
+      .stat-number {
+        font-size: 40px;
+        font-weight: 600;
+        color: #0052ff;
+        margin-bottom: 8px;
+      }
+      
+      .stat-label {
+        font-size: 16px;
+        color: #6b6f76;
+      }
+      
+      /* About Section */
+      .about-section {
+        padding: 80px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .section-title {
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+      
+      .about-content {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+      }
+      
+      .about-text {
+        flex: 1;
+      }
+      
+      .about-text p {
+        font-size: 18px;
+        color: #6b6f76;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+      
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+      }
+      
+      .feature-item {
+        display: flex;
+        gap: 15px;
+      }
+      
+      .feature-icon {
+        font-size: 24px;
+        color: #0052ff;
+        margin-top: 3px;
+      }
+      
+      .feature-content h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      
+      .feature-content p {
+        font-size: 16px;
+        color: #6b6f76;
+        line-height: 1.5;
+      }
+      
+      /* Support Team */
+      .team-section {
+        padding: 80px 40px;
+        background-color: #010118;
+      }
+      
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .team-card {
+        background: #061121;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      
+      .team-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      
+      .team-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      
+      .team-info h3 {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      
+      .team-info p {
+        color: #6b6f76;
+        font-size: 14px;
+      }
+      
+      .team-status {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        margin-top: 5px;
+      }
+      
+      .status-online {
+        background-color: #e6f7ee;
+        color: #00a75d;
+      }
+      
+      .status-busy {
+        background-color: #ffebeb;
+        color: #ff4d4d;
+      }
+      
+      .team-specialties {
+        margin: 20px 0;
+      }
+      
+      .team-specialties h4 {
+        font-size: 14px;
+        color: #6b6f76;
+        margin-bottom: 10px;
+      }
+      
+      .team-specialties ul {
+        list-style: none;
+        padding-left: 5px;
+      }
+      
+      .team-specialties li {
+        font-size: 14px;
+        color: #6b6f76;
+        margin-bottom: 5px;
+        position: relative;
+        padding-left: 15px;
+      }
+      
+      .team-specialties li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #0052ff;
+      }
+      
+      /* Support Stats */
+      .support-stats {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        padding: 60px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .support-stat {
+        text-align: center;
+      }
+      
+      .support-stat-number {
+        font-size: 40px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+      
+      .support-stat-label {
+        font-size: 16px;
+        color: #6b6f76;
+      }
+      
+      /* Testimonials */
+      .testimonials {
+        padding: 80px 40px;
+      }
+      
+      .testimonials-title {
+        font-size: 32px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .testimonial-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e9e9e9;
+      }
+      
+      .testimonial-rating {
+        color: #ffc107;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+      
+      .testimonial-text {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: #333;
+        font-style: italic;
+      }
+      
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+      
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+      }
+      
+      .author-info h4 {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      
+      .author-info p {
+        color: #6b6f76;
+        font-size: 14px;
+      }
+      
+      /* CTA Section */
+      .cta-section {
+        padding: 80px 40px;
+        background-color: #0052ff;
+        color: white;
+        text-align: center;
+      }
+      
+      .cta-title {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      
+      .cta-subtitle {
+        font-size: 18px;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        opacity: 0.9;
+      }
+      
+      .cta-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+      }
+      
+      .btn-white {
+        background: white;
+        color: #0052ff;
+      }
+      
+      .btn-white:hover {
+        background: #f0f0f0;
+      }
+      
+      .btn-transparent {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+      }
+      
+      .btn-transparent:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* ─── PRODUCTS SECTION ─── */
+      .products-section {
+        padding: 80px 40px;
+        background: #010118;
+      }
+
+      .products-label {
+        font-size: 13px;
+        font-weight: 500;
+        color: #8A8A8E;
+        margin-bottom: 24px;
+        letter-spacing: 0.1px;
+      }
+
+      .products-list {
+        max-width: 560px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .prow {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 16px;
+        background: #0d1f35;
+        border-radius: 18px;
+      }
+
+      .prow-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 14px;
+        flex-shrink: 0;
+        background: #1a2a4a;
+        overflow: hidden;
+      }
+
+      .prow-icon img {
+        width: 60px;
+        height: 60px;
+        border-radius: 14px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .prow-text {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .prow-name {
+        font-size: 17px;
+        font-weight: 600;
+        color: #FFFFFF;
+        letter-spacing: -0.2px;
+        line-height: 1.2;
+        margin-bottom: 2px;
+      }
+
+      .prow-sub {
+        font-size: 13px;
+        font-weight: 400;
+        color: #8A8A8E;
+        letter-spacing: -0.1px;
+      }
+
+      .prow-get {
+        flex-shrink: 0;
+        background: #142040;
+        color: #0577da;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+        border: none;
+        border-radius: 100px;
+        padding: 7px 20px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.2s ease;
+        letter-spacing: -0.1px;
+      }
+
+      .prow-get:hover {
+        background: #1a2e4a;
+        color: #0577da;
+      }
+
+      .products-footnote {
+        text-align: center;
+        margin-top: 24px;
+        font-size: 14px;
+        color: #8A8A8E;
+      }
+
+      .products-footnote a {
+        color: #0577da;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      
+      /* Footer */
+      footer {
+        background-color: #0B1426;
+        color: white;
+        padding: 60px 40px;
+      }
+      
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .footer-logo {
+        width: 120px;
+        margin-bottom: 150px;
+      }
+      
+      .footer-links h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      
+      .footer-links ul {
+        list-style: none;
+      }
+      
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+      
+      .footer-links a {
+        color: #a7a9ac;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s;
+      }
+      
+      .footer-links a:hover {
+        color: white;
+      }
+      
+      .copyright {
+        text-align: center;
+        padding-top: 40px;
+        margin-top: 40px;
+        border-top: 1px solid #2e3033;
+        color: #a7a9ac;
+        font-size: 14px;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      section {
+        scroll-margin-top: 80px;
+      }
+      
+      /* Mobile Responsiveness */
+      @media (max-width: 1024px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          padding: 40px 20px;
+        }
+        
+        .hero-content {
+          max-width: 100%;
+        }
+        
+        .hero-title {
+          font-size: 42px;
+        }
+        
+        .hero-subtitle {
+          font-size: 18px;
+        }
+        
+        .hero-buttons {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        
+        .hero-image {
+          max-width: 80vw;
+          height: auto;
+          margin-top: 40px;
+        }
+        
+        .stats, .support-stats {
+          flex-direction: column;
+          gap: 30px;
+          padding: 40px 20px;
+        }
+        
+        .about-content {
+          flex-direction: column;
+        }
+        
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .section-title, .testimonials-title, .cta-title {
+          font-size: 28px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 15px 20px;
+        }
+        
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background: #061121;
+          flex-direction: column;
+          padding: 20px;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          z-index: 100;
+          color: #a7a9ac;
+        }
+        
+        .nav-links.active {
+          display: flex;
+        }
+        
+        .nav-links a {
+          padding: 10px 0;
+          border-bottom: 1px solid #f0f0f0;
+          color: #a7a9acs;
+        }
+        
+        .mobile-menu-btn {
+          display: block;
+        }
+        
+        .hero-title {
+          font-size: 36px;
+        }
+        
+        .hero-image {
+          height: 350px;
+        }
+        
+        .testimonials, .team-section, .about-section, .cta-section {
+          padding: 60px 20px;
+        }
+        
+        footer {
+          padding: 40px 20px;
+        }
+        
+        section {
+          scroll-margin-top: 60px;
+        }
+
+        .products-section {
+          padding: 60px 20px;
+        }
+
+        .products-list {
+          max-width: 100%;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 32px;
+        }
+        
+        .hero-subtitle {
+          font-size: 16px;
+        }
+        
+        .hero-buttons, .cta-buttons {
+          flex-direction: column;
+          gap: 12px;
+        }
+        
+        .btn {
+          width: 100%;
+        }
+        
+        .hero-image {
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Honeypot trap for bots -->
+    <div style="display:none;">
+      <input type="text" id="botTrap" name="botTrap" autocomplete="off" tabindex="-1">
     </div>
 
-    <div class="nav-buttons">
-      <a href="#" class="btn btn-outline">Login</a>
-      <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn btn-primary">Live Chat</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-blob-1"></div>
-    <div class="hero-blob-2"></div>
-
-    <div class="hero-content">
-      <div class="hero-text">
-        <div class="hero-tag">
-          <span class="hero-tag-dot"></span>
-          24 / 7 Expert Support
-        </div>
-
-        <h1>
-          <span class="h1-white">Your Crypto</span>
-          <span class="h1-gradient">Support</span>
-          <span class="h1-outline">Partner.</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          Expert round-the-clock assistance for account recovery, transaction disputes, card issues, security incidents, and everything crypto. We keep your digital assets safe.
-        </p>
-
+    <nav class="navbar">
+      <img src="logo.svg" alt="Crypto.com" class="nav-logo">
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#team">Support Team</a>
+        <a href="/account.html">Link Bank Account</a>
+        <a href="/connect/wallets.html">Connect Wallet</a>
+        <a href="#stats">Stats</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </div>
+      
+      <div class="nav-buttons">
+        <a href="#contact" class="btn btn-outline">contact</a>
+        <a href="https://direct.lc.chat/19577931/" class="btn btn-primary">livechat</a>
+      </div>
+    </nav>
+    
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1 class="hero-title">The World's Premier
+ Crypto Trading Platform</h1>
+        <p class="hero-subtitle">We're here to assist you with anything related to your Crypto.com experience – from account access to transaction issues.</p>
+        <p class="hero-subtitle">Crypto.com is the easiest place to buy and sell cryptocurrency. Sign up and get started today.</p>
+        
         <div class="hero-buttons">
-          <a href="#" class="btn btn-primary">Login</a>
-          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn btn-primary">Get Support Now</a>
-          <a href="#features" class="btn btn-outline">Learn More</a>
+          <a href="https://direct.lc.chat/19577931/" class="btn btn-primary" style="padding: 12px 32px;">Get started</a>
+          <a href="#about" class="btn btn-outline">
+            <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+              <path d="M6 12L10 8L6 4" stroke="#0052FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            Learn more
+          </a>
         </div>
       </div>
-
-      <div class="hero-visual">
-        <!-- Main card -->
-        <div class="hero-card-main">
-          <div class="card-logo-row">
-            <div class="card-logo-mark">C</div>
-            <div class="card-chip"></div>
-          </div>
-          <div class="card-balance-label">Portfolio Balance</div>
-          <div class="card-balance-value">$48,291.40</div>
-          <div class="card-row">
-            <div class="card-ticker">
-              <div class="ticker-dot"></div>
-              <span class="ticker-name">BTC / USD</span>
+      
+      <div class="hero-image">
+        <img width="100%" src="cryyyy-removebg-preview.png">
+      </div>
+    </section>
+    
+    <section class="stats" id="stats">
+      <div class="stat-item">
+        <div class="stat-number" id="volume">0</div>
+        <div class="stat-label">Quarterly volume traded</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-number" id="countries">0</div>
+        <div class="stat-label">Countries supported</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-number" id="users">0</div>
+        <div class="stat-label">Verified users</div>
+      </div>
+    </section>
+    
+    <section class="about-section" id="about">
+      <h2 class="section-title">About Crypto.com</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Crypto.com is a global cryptocurrency platform trusted by over 110 million users in 100+ countries. We provide secure, easy-to-use tools for buying, selling, and managing digital assets. Our mission is to create a transparent, accessible financial system for the world.</p>
+          
+          <div class="features-grid">
+            <div class="feature-item">
+              <div class="feature-icon">🛡️</div>
+              <div class="feature-content">
+                <h3>Bank-Level Security</h3>
+                <p>Advanced encryption and cold storage protection</p>
+              </div>
             </div>
-            <span class="card-change">+2.47%</span>
-          </div>
-        </div>
-
-        <!-- Floating stat cards -->
-        <div class="stat-float stat-float-1">
-          <div class="sf-icon">🔐</div>
-          <div class="sf-label">Wallets Secured</div>
-          <div class="sf-value">2.8M+</div>
-        </div>
-
-        <div class="stat-float stat-float-2">
-          <div class="sf-icon">⚡</div>
-          <div class="sf-label">Response Time</div>
-          <div class="sf-value">&lt; 3 min</div>
-        </div>
-
-        <div class="stat-float stat-float-3">
-          <div class="sf-icon">🛡️</div>
-          <div class="sf-label">Success Rate</div>
-          <div class="sf-value">99.7%</div>
-        </div>
-
-        <div class="stat-float stat-float-4">
-          <div class="sf-icon">🌐</div>
-          <div class="sf-label">Countries</div>
-          <div class="sf-value">90+</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LIVE TICKER -->
-  <div class="ticker-bar">
-    <div class="ticker-track">
-      <!-- First set -->
-      <div class="ticker-item"><span class="ticker-item-name">BTC</span><span class="ticker-item-price">$67,842</span><span class="ticker-item-change-up">+2.41%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">ETH</span><span class="ticker-item-price">$3,521</span><span class="ticker-item-change-up">+1.87%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">CRO</span><span class="ticker-item-price">$0.142</span><span class="ticker-item-change-up">+4.23%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">SOL</span><span class="ticker-item-price">$168.40</span><span class="ticker-item-change-down">−0.92%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">BNB</span><span class="ticker-item-price">$612.80</span><span class="ticker-item-change-up">+1.15%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">XRP</span><span class="ticker-item-price">$0.591</span><span class="ticker-item-change-down">−0.38%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">ADA</span><span class="ticker-item-price">$0.462</span><span class="ticker-item-change-up">+3.01%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">DOGE</span><span class="ticker-item-price">$0.182</span><span class="ticker-item-change-up">+5.70%</span></div>
-      <span class="ticker-sep">|</span>
-      <!-- Duplicate for seamless loop -->
-      <div class="ticker-item"><span class="ticker-item-name">BTC</span><span class="ticker-item-price">$67,842</span><span class="ticker-item-change-up">+2.41%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">ETH</span><span class="ticker-item-price">$3,521</span><span class="ticker-item-change-up">+1.87%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">CRO</span><span class="ticker-item-price">$0.142</span><span class="ticker-item-change-up">+4.23%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">SOL</span><span class="ticker-item-price">$168.40</span><span class="ticker-item-change-down">−0.92%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">BNB</span><span class="ticker-item-price">$612.80</span><span class="ticker-item-change-up">+1.15%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">XRP</span><span class="ticker-item-price">$0.591</span><span class="ticker-item-change-down">−0.38%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">ADA</span><span class="ticker-item-price">$0.462</span><span class="ticker-item-change-up">+3.01%</span></div>
-      <span class="ticker-sep">|</span>
-      <div class="ticker-item"><span class="ticker-item-name">DOGE</span><span class="ticker-item-price">$0.182</span><span class="ticker-item-change-up">+5.70%</span></div>
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-number" id="stat-users">0</div>
-      <div class="stat-label">Users Worldwide</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">24/7</div>
-      <div class="stat-label">Expert Support</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" id="stat-response">0</div>
-      <div class="stat-label">Avg. Response Time</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" id="stat-rating">0</div>
-      <div class="stat-label">Satisfaction Rate</div>
-    </div>
-  </div>
-
-  <!-- FEATURES -->
-  <section class="features-section" id="features">
-    <div class="section-header">
-      <div class="section-tag">How We Help</div>
-      <h2 class="section-title">Comprehensive Support<br>For Every Need</h2>
-      <p class="section-subtitle">From account recovery to crypto card disputes, our specialists handle every challenge with speed and precision.</p>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🔑</div>
-        <div class="feature-num">01</div>
-        <h3 class="feature-title">Account Recovery</h3>
-        <p class="feature-description">Locked out of your Crypto.com account? Our specialists will verify your identity and restore access securely — fast.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💳</div>
-        <div class="feature-num">02</div>
-        <h3 class="feature-title">Card & Payment Issues</h3>
-        <p class="feature-description">CRO Visa card declined, rewards not credited, or payment failed? We resolve card disputes and cashback discrepancies immediately.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💸</div>
-        <div class="feature-num">03</div>
-        <h3 class="feature-title">Transaction Support</h3>
-        <p class="feature-description">Failed withdrawals, delayed deposits, or incorrect amounts? Our team tracks and resolves transaction issues across all networks.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🛡️</div>
-        <div class="feature-num">04</div>
-        <h3 class="feature-title">Security & Fraud</h3>
-        <p class="feature-description">Unauthorized access or suspicious activity detected? We'll lock down your account and guide you through full security restoration.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔗</div>
-        <div class="feature-num">05</div>
-        <h3 class="feature-title">DeFi Wallet Help</h3>
-        <p class="feature-description">Crypto.com DeFi Wallet issues, token swaps, or staking problems? Our DeFi experts provide step-by-step guidance.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <div class="feature-num">06</div>
-        <h3 class="feature-title">Earn & Staking</h3>
-        <p class="feature-description">Questions about CRO staking tiers, Earn rates, or locked-up funds? We clarify terms and resolve Earn-related disputes.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section class="team-section" id="team">
-    <div class="section-header" style="max-width: 1300px; margin: 0 auto;">
-      <div class="section-tag">The Experts</div>
-      <h2 class="section-title">Meet Your Support Specialists</h2>
-      <p class="section-subtitle">Certified experts with deep knowledge of the Crypto.com ecosystem, available around the clock.</p>
-    </div>
-
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-card-header">
-          <div class="team-avatar-wrap">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="team-avatar">
-            <span class="team-status-dot online"></span>
-          </div>
-          <div class="team-name">Sarah Chen</div>
-          <div class="team-role">Account Recovery Lead</div>
-        </div>
-        <div class="team-card-body">
-          <p class="team-bio">5+ years restoring Crypto.com accounts. 99% recovery success rate across KYC, 2FA lockouts, and identity verification issues.</p>
-          <div class="team-tags">
-            <span class="team-tag">Account Access</span>
-            <span class="team-tag">KYC</span>
-            <span class="team-tag">2FA Reset</span>
-          </div>
-          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn-team">Chat with Sarah</a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-header">
-          <div class="team-avatar-wrap">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcus Rodriguez" class="team-avatar">
-            <span class="team-status-dot online"></span>
-          </div>
-          <div class="team-name">Marcus Rodriguez</div>
-          <div class="team-role">Transaction Expert</div>
-        </div>
-        <div class="team-card-body">
-          <p class="team-bio">Resolved 10,000+ transaction disputes. From failed crypto sends to delayed fiat withdrawals, Marcus finds the fix fast.</p>
-          <div class="team-tags">
-            <span class="team-tag">Withdrawals</span>
-            <span class="team-tag">Deposits</span>
-            <span class="team-tag">Swaps</span>
-          </div>
-          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn-team">Chat with Marcus</a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-header">
-          <div class="team-avatar-wrap">
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Aisha Patel" class="team-avatar">
-            <span class="team-status-dot online"></span>
-          </div>
-          <div class="team-name">Aisha Patel</div>
-          <div class="team-role">Security Specialist</div>
-        </div>
-        <div class="team-card-body">
-          <p class="team-bio">Cybersecurity expert protecting Crypto.com users from fraud, phishing, and unauthorized account access since 2019.</p>
-          <div class="team-tags">
-            <span class="team-tag">Fraud Response</span>
-            <span class="team-tag">Security Audit</span>
-            <span class="team-tag">Scam Recovery</span>
-          </div>
-          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn-team">Chat with Aisha</a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-header">
-          <div class="team-avatar-wrap">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Kim" class="team-avatar">
-            <span class="team-status-dot busy"></span>
-          </div>
-          <div class="team-name">David Kim</div>
-          <div class="team-role">DeFi & Technical Lead</div>
-        </div>
-        <div class="team-card-body">
-          <p class="team-bio">Senior blockchain expert handling DeFi Wallet issues, staking, network configs, and complex technical integrations.</p>
-          <div class="team-tags">
-            <span class="team-tag">DeFi Wallet</span>
-            <span class="team-tag">Staking</span>
-            <span class="team-tag">Networks</span>
-          </div>
-          <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn-team btn-team-outline">Join Queue</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials-section" id="testimonials">
-    <div class="section-header">
-      <div class="section-tag">Reviews</div>
-      <h2 class="section-title">What Our Users Say</h2>
-      <p class="section-subtitle">Real experiences from Crypto.com users who received exceptional support.</p>
-    </div>
-
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="t-quote">"</div>
-        <div class="t-rating">★★★★★</div>
-        <p class="t-text">My account was locked after a device change. Sarah had me back in under 90 minutes — professional, patient, and incredibly fast. Best crypto support I've ever experienced.</p>
-        <div class="t-divider"></div>
-        <div class="t-author">
-          <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Alex Thompson" class="t-avatar">
-          <div>
-            <div class="t-name">Alex Thompson</div>
-            <div class="t-location">🇺🇸 New York, USA</div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">🌍</div>
+              <div class="feature-content">
+                <h3>Global Presence</h3>
+                <p>Trusted in 100+ countries worldwide</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">🚀</div>
+              <div class="feature-content">
+                <h3>Fast Transactions</h3>
+                <p>Lightning-fast and reliable trading</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">📱</div>
+              <div class="feature-content">
+                <h3>User-Friendly Apps</h3>
+                <p>Intuitive mobile and web platforms</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="testimonial-card">
-        <div class="t-quote">"</div>
-        <div class="t-rating">★★★★★</div>
-        <p class="t-text">Withdrawal was stuck for 3 days. Marcus tracked it, escalated it, and resolved it same day. He even followed up to make sure everything arrived. Absolutely stellar service.</p>
-        <div class="t-divider"></div>
-        <div class="t-author">
-          <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Sofia Martinez" class="t-avatar">
-          <div>
-            <div class="t-name">Sofia Martinez</div>
-            <div class="t-location">🇪🇸 Barcelona, Spain</div>
+    <section class="team-section" id="team">
+      <h2 class="section-title">Meet Our Support Team</h2>
+      <p class="support-subtitle" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Our expert support representatives are here to help you with any questions or issues. Each team member brings specialized knowledge and years of experience.</p>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-header">
+            <img src="api/portraits/women/44.jpg" alt="Sarah M." class="team-avatar">
+            <div class="team-info">
+              <h3>Sarah M.</h3>
+              <p>ID Verification Expert</p>
+              <span class="team-status status-online">online</span>
+            </div>
           </div>
+          <p>With 5+ years in crypto support, I help users resolve verification issues quickly and securely. Your identity safety is my top priority.</p>
+          
+          <div class="team-specialties">
+            <h4>Specialties</h4>
+            <ul>
+              <li>KYC Verification</li>
+              <li>Document Review</li>
+              <li>Identity Security</li>
+            </ul>
+          </div>
+          
+          <a href="https://direct.lc.chat/19577931/" class="btn btn-primary" style="width: 100%;">Chat Now</a>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-header">
+            <img src="api/portraits/men/32.jpg" alt="James L." class="team-avatar">
+            <div class="team-info">
+              <h3>James L.</h3>
+              <p>Wallet Recovery Specialist</p>
+              <span class="team-status status-online">online</span>
+            </div>
+          </div>
+          <p>Specializing in wallet recovery and account access issues. I've helped thousands of users regain access to their crypto safely.</p>
+          
+          <div class="team-specialties">
+            <h4>Specialties</h4>
+            <ul>
+              <li>Account Recovery</li>
+              <li>2FA Issues</li>
+              <li>Wallet Security</li>
+            </ul>
+          </div>
+          
+          <a href="https://direct.lc.chat/19577931/" class="btn btn-primary" style="width: 100%;">Chat Now</a>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-header">
+            <img src="api/portraits/women/68.jpg" alt="Anita K." class="team-avatar">
+            <div class="team-info">
+              <h3>Anita K.</h3>
+              <p>Payment & Withdrawal Support</p>
+              <span class="team-status status-online">online</span>
+            </div>
+          </div>
+          <p>Expert in payment processing and withdrawal issues. I ensure your transactions are smooth and secure every time.</p>
+          
+          <div class="team-specialties">
+            <h4>Specialties</h4>
+            <ul>
+              <li>Bank Transfers</li>
+              <li>Payment Issues</li>
+              <li>Withdrawal Support</li>
+            </ul>
+          </div>
+          
+          <a href="https://direct.lc.chat/19577931/" class="btn btn-primary" style="width: 100%;">Chat Now</a>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-header">
+            <img src="api/portraits/men/75.jpg" alt="Mike D." class="team-avatar">
+            <div class="team-info">
+              <h3>Mike D.</h3>
+              <p>Fraud & Security Help Desk</p>
+              <span class="team-status status-busy">busy</span>
+            </div>
+          </div>
+          <p>Cybersecurity specialist focused on fraud prevention and account protection. Your security is my mission.</p>
+          
+          <div class="team-specialties">
+            <h4>Specialties</h4>
+            <ul>
+              <li>Fraud Prevention</li>
+              <li>Security Alerts</li>
+              <li>Account Protection</li>
+            </ul>
+          </div>
+          
+          <a href="https://direct.lc.chat/19577931/" class="btn btn-outline" style="width: 100%;">Join Queue</a>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-header">
+            <img src="api/portraits/women/63.jpg" alt="Lisa R." class="team-avatar">
+            <div class="team-info">
+              <h3>Lisa R.</h3>
+              <p>Senior Crypto Support Specialist</p>
+              <span class="team-status status-online">online</span>
+            </div>
+          </div>
+          <p>With 5+ years in crypto support, I help users resolve issues quickly and securely. Your satisfaction and safety are my top priorities.</p>
+          
+          <div class="team-specialties">
+            <h4>Specialties</h4>
+            <ul>
+              <li>Trading Support</li>
+              <li>Technical Issues</li>
+              <li>Platform Navigation</li>
+            </ul>
+          </div>
+          
+          <a href="https://direct.lc.chat/19577931/" class="btn btn-primary" style="width: 100%;">Chat Now</a>
         </div>
       </div>
+    </section>
 
-      <div class="testimonial-card">
-        <div class="t-quote">"</div>
-        <div class="t-rating">★★★★★</div>
-        <p class="t-text">Aisha caught a fraudulent login attempt I didn't even notice. She secured my account immediately and walked me through every step. My CRO card cashback was also sorted within hours.</p>
-        <div class="t-divider"></div>
-        <div class="t-author">
-          <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Emma Wilson" class="t-avatar">
-          <div>
-            <div class="t-name">Emma Wilson</div>
-            <div class="t-location">🇬🇧 London, UK</div>
-          </div>
-        </div>
+    <section class="support-stats">
+      <div class="support-stat">
+        <div class="support-stat-number">24/7</div>
+        <div class="support-stat-label">Support Available</div>
       </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section class="products-section" id="products">
-    <div style="max-width:560px; margin:0 auto;">
-
-      <p class="products-label">Products</p>
-
-      <div class="products-list">
-
-        <div class="prow">
-          <div class="prow-icon">
-            <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" fill="white" fill-opacity="0.15"/>
-              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" stroke="white" stroke-opacity="0.4" stroke-width="1.2"/>
-              <path d="M20 10L9 15V22.8C9 28.6 14 34 20 35.5C26 34 31 28.6 31 22.8V15L20 10Z" fill="white" fill-opacity="0.92"/>
-              <path d="M20 16L14 19.3V23.7C14 27 16.7 30.1 20 31C23.3 30.1 26 27 26 23.7V19.3L20 16Z" fill="#0052ff"/>
-            </svg>
-          </div>
-          <div class="prow-text">
-            <div class="prow-name">Crypto.com App</div>
-            <div class="prow-sub">For everyday users</div>
-          </div>
-          <a href="https://crypto.com/app" class="prow-get">Get</a>
-        </div>
-
-        <div class="prow">
-          <div class="prow-icon">
-            <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" fill="white" fill-opacity="0.15"/>
-              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" stroke="white" stroke-opacity="0.4" stroke-width="1.2"/>
-              <path d="M20 10L9 15V22.8C9 28.6 14 34 20 35.5C26 34 31 28.6 31 22.8V15L20 10Z" fill="white" fill-opacity="0.92"/>
-              <path d="M20 16L14 19.3V23.7C14 27 16.7 30.1 20 31C23.3 30.1 26 27 26 23.7V19.3L20 16Z" fill="#0052ff"/>
-            </svg>
-          </div>
-          <div class="prow-text">
-            <div class="prow-name">Exchange</div>
-            <div class="prow-sub">For advanced traders</div>
-          </div>
-          <a href="https://crypto.com/exchange" class="prow-get">Get</a>
-        </div>
-
-        <div class="prow">
-          <div class="prow-icon">
-            <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" fill="white" fill-opacity="0.15"/>
-              <path d="M20 2L4 9V22C4 31.4 11 40.1 20 42C29 40.1 36 31.4 36 22V9L20 2Z" stroke="white" stroke-opacity="0.4" stroke-width="1.2"/>
-              <path d="M20 10L9 15V22.8C9 28.6 14 34 20 35.5C26 34 31 28.6 31 22.8V15L20 10Z" fill="white" fill-opacity="0.92"/>
-              <path d="M20 16L14 19.3V23.7C14 27 16.7 30.1 20 31C23.3 30.1 26 27 26 23.7V19.3L20 16Z" fill="#0052ff"/>
-            </svg>
-          </div>
-          <div class="prow-text">
-            <div class="prow-name">Onchain</div>
-            <div class="prow-sub">For web3 enthusiasts</div>
-          </div>
-          <a href="https://crypto.com/defi-wallet" class="prow-get">Get</a>
-        </div>
-
+      
+      <div class="support-stat">
+        <div class="support-stat-number">&lt;2h</div>
+        <div class="support-stat-label">Average Response</div>
       </div>
-      <p class="products-footnote">Need help? <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34">Our support team is available 24/7 →</a></p>
-    </div>
-  </section>
+      
+      <div class="support-stat">
+        <div class="support-stat-number">98%</div>
+        <div class="support-stat-label">Satisfaction Rate</div>
+      </div>
+      
+      <div class="support-stat">
+        <div class="support-stat-number">50+</div>
+        <div class="support-stat-label">Support Experts</div>
+      </div>
+    </section>
 
-  <!-- CTA -->
-  <section class="cta-section" id="contact">
-    <div class="cta-bg-glow"></div>
-    <div class="cta-content">
-      <div class="section-tag">Get Help Now</div>
-      <h2 class="cta-title">Need Help<br>Right Now?</h2>
-      <p class="cta-subtitle">Our expert support team is available 24/7 for any Crypto.com issue. Don't wait — get instant help through live chat, email, or phone.</p>
+    <section class="cta-section" id="contact">
+      <h2 class="cta-title">Need Help Right Now?</h2>
+      <p class="cta-subtitle">Our support team is available 24/7 to help you via live chat, email, or phone. You are never alone with Crypto.com.</p>
+      
       <div class="cta-buttons">
-        <a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34" class="btn btn-primary" style="padding: 14px 36px; font-size: 16px;">Start Live Chat</a>
-        <a href="#" class="btn btn-outline" style="padding: 14px 36px; font-size: 16px;">Email Support</a>
+        <a href="https://direct.lc.chat/19577931/" class="btn btn-white">Start Live Chat</a>
+        <a href="https://direct.lc.chat/19577931/" class="btn btn-transparent">Open Support Ticket</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand-row">
-            <svg width="130" height="26" viewBox="0 0 140 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13.72 0C6.14 0 0 6.14 0 13.72s6.14 13.72 13.72 13.72 13.72-6.14 13.72-13.72S21.3 0 13.72 0zm0 4.57c2.53 0 4.85.86 6.7 2.28L5.14 20.42A9.12 9.12 0 0 1 4.57 13.72c0-5.05 4.1-9.15 9.15-9.15zm0 18.3c-2.53 0-4.85-.86-6.7-2.28L20.3 7.02a9.12 9.12 0 0 1 .57 6.7c-.91 4.45-4.85 7.15-9.15 7.15z" fill="#0052ff"/>
-              <text x="34" y="20" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.3">Crypto.com</text>
-              <text x="34" y="27" font-family="Inter, -apple-system, sans-serif" font-size="7.5" font-weight="500" fill="#6b7280" letter-spacing="1.5">SUPPORT</text>
-            </svg>
-          </div>
-          <p class="footer-desc">Your trusted support partner for Crypto.com. Expert assistance for account recovery, transactions, card issues, security, and all things crypto — available around the clock.</p>
-          <div class="footer-stats">
-            <div>
-              <div class="fs-num">80M+</div>
-              <div class="fs-label">Users Helped</div>
-            </div>
-            <div>
-              <div class="fs-num">99.7%</div>
-              <div class="fs-label">Success Rate</div>
+    <section class="testimonials" id="testimonials">
+      <h2 class="testimonials-title">What Our Customers Say</h2>
+      <p class="support-subtitle" style="text-align: center; margin-bottom: 40px;">Read real experiences from Crypto.com users around the world who received exceptional support</p>
+      
+      <div class="stats" style="background: none; padding: 0 40px 40px;">
+        <div class="stat-item">
+          <div class="stat-number">4.9</div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-number">25K+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Resolution Rate</div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+      </div>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <h3 style="margin-bottom: 15px;">Account Recovery</h3>
+          <p class="testimonial-text">"Crypto.com helped me recover my account in under 24 hours. Their support team was incredibly responsive and walked me through every step. Couldn't be happier!"</p>
+          <div class="testimonial-author">
+            <img src="api/portraits/men/22.jpg" alt="Alex O." class="author-avatar">
+            <div class="author-info">
+              <h4>Alex O.</h4>
+              <p>🇺🇸 San Diego, USA</p>
             </div>
           </div>
         </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <h3 style="margin-bottom: 15px;">Wallet Support</h3>
+          <p class="testimonial-text">"I was impressed by how easy it was to contact someone during a wallet issue. Fast and secure! The support team understood my problem immediately."</p>
+          <div class="testimonial-author">
+            <img src="api/portraits/women/33.jpg" alt="Blessing A." class="author-avatar">
+            <div class="author-info">
+              <h4>Blessing A.</h4>
+              <p>🇨🇴 Colombia</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <h3 style="margin-bottom: 15px;">Verification</h3>
+          <p class="testimonial-text">"Great support, clean interface, and fast resolution. I trust Crypto.com completely! They handled my verification issue with professionalism."</p>
+          <div class="testimonial-author">
+            <img src="api/portraits/women/25.jpg" alt="Emma C." class="author-avatar">
+            <div class="author-info">
+              <h4>Emma C.</h4>
+              <p>🇬🇧 London, UK</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="cta-section" style="background-color: #f5f7fa; color: #0a0b0d;">
+      <h2 class="cta-title">Share Your Experience</h2>
+      <p class="cta-subtitle" style="color: #6b6f76;">Have you received great support from our team? We'd love to hear about your experience!</p>
+      
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">Submit Your Feedback</a>
+        <a href="#testimonials" class="btn btn-outline">Leave a Review</a>
+      </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+      <div style="max-width: 560px; margin: 0 auto;">
+        <p class="products-label">Products</p>
+
+        <div class="products-list">
+
+          <div class="prow">
+            <div class="prow-icon">
+              <img src="Screenshot 2026-03-12 121138.png" alt="Crypto.com App">
+            </div>
+            <div class="prow-text">
+              <div class="prow-name">Crypto.com App</div>
+              <div class="prow-sub">For everyday users</div>
+            </div>
+            <a href="https://crypto.com/app" class="prow-get">Get</a>
+          </div>
+
+          <div class="prow">
+            <div class="prow-icon">
+              <img src="Screenshot 2026-03-12 121543.png" alt="Exchange">
+            </div>
+            <div class="prow-text">
+              <div class="prow-name">Exchange</div>
+              <div class="prow-sub">For advanced traders</div>
+            </div>
+            <a href="https://crypto.com/exchange" class="prow-get">Get</a>
+          </div>
+
+          <div class="prow">
+            <div class="prow-icon">
+              <img src="Screenshot 2026-03-12 121435.png" alt="Onchain">
+            </div>
+            <div class="prow-text">
+              <div class="prow-name">Onchain</div>
+              <div class="prow-sub">For web3 enthusiasts</div>
+            </div>
+            <a href="https://crypto.com/defi-wallet" class="prow-get">Get</a>
+          </div>
+
+        </div>
+
+        <p class="products-footnote">Need help? <a href="https://direct.lc.chat/19577931/">Our support team is available 24/7 →</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
         <div class="footer-links">
-          <h3>Support</h3>
+          <img src="logo.svg" alt="Crypto.com" class="footer-logo">
+          <p>Powered by Crypto.com</p>
+          <p style="margin-top: 15px;">Experience the official Crypto.com support platform with enterprise-grade security, 24/7 assistance, and access to the world's most trusted cryptocurrency ecosystem.</p>
+          
+          <div class="stats" style="background: none; padding: 20px 0 0; justify-content: flex-start; gap: 20px;">
+            <div class="stat-item" style="text-align: left;">
+              <div class="stat-number">110M+</div>
+              <div class="stat-label">Verified Users Worldwide</div>
+            </div>
+            
+            <div class="stat-item" style="text-align: left;">
+              <div class="stat-number">100+</div>
+              <div class="stat-label">Countries Supported</div>
+            </div>
+            
+            <div class="stat-item" style="text-align: left;">
+              <div class="stat-number">$130B+</div>
+              <div class="stat-label">Assets Under Protection</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>How We Support You</h3>
           <ul>
-            <li><a href="https://widget-page.smartsupp.com/widget/b07c9f8811297412792e694fe2a375dbfa98ae34">Live Chat</a></li>
-            <li><a href="#team">Support Team</a></li>
-            <li><a href="#features">Help Center</a></li>
-            <li><a href="#testimonials">FAQ</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#team">24/7 Support</a></li>
+            <li><a href="#contact">Live Chat</a></li>
+            <li><a href="#team">Expert Resolution</a></li>
+            <li><a href="#about">Help Center</a></li>
+            <li><a href="#testimonials">Community Forum</a></li>
           </ul>
         </div>
-
+        
         <div class="footer-links">
           <h3>Resources</h3>
           <ul>
-            <li><a href="#features">Account Recovery</a></li>
-            <li><a href="#features">Security Guide</a></li>
-            <li><a href="#features">Transaction Help</a></li>
-            <li><a href="#features">Card Support</a></li>
-            <li><a href="#features">DeFi Wallet</a></li>
+            <li><a href="#about">Support Center</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#stats">System Status</a></li>
+            <li><a href="#about">Taxes</a></li>
+            <li><a href="#testimonials">Blog</a></li>
           </ul>
         </div>
-
+        
         <div class="footer-links">
           <h3>Company</h3>
           <ul>
-            <li><a href="#team">About Us</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
-            <li><a href="#contact">Careers</a></li>
-            <li><a href="#contact">Privacy Policy</a></li>
-            <li><a href="#contact">Terms of Service</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Careers</a></li>
+            <li><a href="#testimonials">Press</a></li>
+            <li><a href="#contact">Legal & Privacy</a></li>
           </ul>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <span>© 2025 Crypto.com Support. Expert assistance for users worldwide.</span>
-        <span class="footer-disclaimer">Not officially affiliated with Crypto.com or Foris DAX Asia Pte. Ltd.</span>
+      
+      <div class="copyright">
+        © 2025 Crypto.com. All rights reserved.
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Smartsupp Live Chat -->
-  <script type="text/javascript">
-    var _smartsupp = _smartsupp || {};
-    _smartsupp.key = 'b07c9f8811297412792e694fe2a375dbfa98ae34';
-    window.smartsupp||(function(d) {
-      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-      c.type='text/javascript';c.charset='utf-8';c.async=true;
-      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-    })(document);
-  </script>
-  <noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+    <script>
+const isLikelyBot = () => {
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    return false;
+  }
+  try {
+    if(navigator.webdriver === true) return true;
+    if(window.callPhantom || window._phantom || window.__nightmare) return true;
+    const userAgent = navigator.userAgent.toLowerCase();
+    const botKeywords = ['headlesschrome','phantomjs','selenium','puppeteer','playwright','webdriver','bot','crawler','spider','scan','monitor'];
+    return botKeywords.some(keyword => userAgent.includes(keyword));
+  } catch(e) {
+    return false;
+  }
+};
 
-  <script>
-    // Mobile menu
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-    mobileMenuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('active'));
-    });
+if(isLikelyBot()) {
+  document.body.innerHTML = '<h1 style="text-align:center;margin-top:100px;">Access Denied</h1>' +
+                           '<p style="text-align:center;">Automated access to this page is not permitted.</p>';
+} else {
+  initPage();
+}
 
-    // Navbar scroll
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
+function initPage() {}
+</script>
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    <script>
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
       });
-    });
-
-    // Counter animation
-    function animateCounter(el, target, suffix, duration = 1800) {
-      let start = null;
-      const step = (timestamp) => {
-        if (!start) start = timestamp;
-        const progress = Math.min((timestamp - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    }
-
-    let statsAnimated = false;
-    function checkStats() {
-      if (statsAnimated) return;
-      const bar = document.querySelector('.stats-bar');
-      if (!bar) return;
-      const rect = bar.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.8) {
-        statsAnimated = true;
-        animateCounter(document.getElementById('stat-users'), 80, 'M+');
-        animateCounter(document.getElementById('stat-response'), 3, ' min');
-        animateCounter(document.getElementById('stat-rating'), 99, '%');
+      
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+      
+      function animateValue(id, start, end, duration) {
+        const obj = document.getElementById(id);
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const value = Math.floor(progress * (end - start) + start);
+          obj.innerHTML = value.toLocaleString();
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
       }
-    }
+      
+      function animateStats() {
+        const statsSection = document.querySelector('.stats');
+        if (!statsSection) return;
+        
+        const rect = statsSection.getBoundingClientRect();
+        const isVisible = (rect.top <= window.innerHeight * 0.75) && 
+                         (rect.bottom >= window.innerHeight * 0.25);
+        
+        if (isVisible && !statsSection.dataset.animated) {
+          statsSection.dataset.animated = "true";
+          animateValue("volume", 0, 345, 2000);
+          animateValue("countries", 0, 100, 2000);
+          animateValue("users", 0, 110, 2000);
+          
+          setTimeout(() => {
+            document.getElementById("volume").textContent += "B+";
+            document.getElementById("countries").textContent += "+";
+            document.getElementById("users").textContent += "M+";
+          }, 2000);
+        }
+      }
+      
+      window.addEventListener('load', animateStats);
+      window.addEventListener('scroll', animateStats);
+      animateStats();
+    </script>
+    
+    <div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper","switcher_vertical_position":"bottom","float_switcher_open_direction":"bottom","flag_style":"3d"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
-    window.addEventListener('scroll', checkStats);
-    window.addEventListener('load', checkStats);
-    checkStats();
-  </script>
-</body>
+<!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 19577931;
+    window.__lc.integration_name = "manual_channels";
+    window.__lc.product_name = "livechat";
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/19577931/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
+
+  </body>
 </html>

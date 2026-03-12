@@ -1,0 +1,100 @@
+Uri: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\ajax\libs\font-awesome\6.0.0\css\all.min.css
+Content Type: text/css
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.ttf
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\ajax\libs\font-awesome\6.0.0\webfonts\fa-brands-400.ttf
+Content Type: application/octet-stream
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.woff2
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\ajax\libs\font-awesome\6.0.0\webfonts\fa-brands-400.woff2
+Content Type: application/octet-stream
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\ajax\libs\font-awesome\6.0.0\webfonts\fa-regular-400.ttf
+Content Type: application/octet-stream
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\ajax\libs\font-awesome\6.0.0\webfonts\fa-regular-400.woff2
+Content Type: application/octet-stream
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\ajax\libs\font-awesome\6.0.0\webfonts\fa-solid-900.ttf
+Content Type: application/octet-stream
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\ajax\libs\font-awesome\6.0.0\webfonts\fa-solid-900.woff2
+Content Type: application/octet-stream
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-v4compatibility.ttf
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\ajax\libs\font-awesome\6.0.0\webfonts\fa-v4compatibility.ttf
+Content Type: application/octet-stream
+
+Uri: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-v4compatibility.woff2
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\ajax\libs\font-awesome\6.0.0\webfonts\fa-v4compatibility.woff2
+Content Type: application/octet-stream
+
+Uri: https://coin.base-supports.com/
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\index.htm
+Content Type: text/html
+
+Uri: https://coin.base-supports.com/gifgits.gif
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\gifgits.gif
+Content Type: image/gif
+
+Uri: https://coin.base-supports.com/logo.png
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\logo.png
+Content Type: image/png
+
+Uri: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\css2
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\s\inter\v19\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\s\inter\v19\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\s\inter\v19\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\s\inter\v19\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf
+Content Type: font/ttf
+
+Uri: https://randomuser.me/api/portraits/men/22.jpg
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\api\portraits\men\22.jpg
+Content Type: image/jpeg
+
+Uri: https://randomuser.me/api/portraits/men/32.jpg
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\api\portraits\men\32.jpg
+Content Type: image/jpeg
+
+Uri: https://randomuser.me/api/portraits/men/75.jpg
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\api\portraits\men\75.jpg
+Content Type: image/jpeg
+
+Uri: https://randomuser.me/api/portraits/women/25.jpg
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\api\portraits\women\25.jpg
+Content Type: image/jpeg
+
+Uri: https://randomuser.me/api/portraits/women/33.jpg
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\api\portraits\women\33.jpg
+Content Type: image/jpeg
+
+Uri: https://randomuser.me/api/portraits/women/44.jpg
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\api\portraits\women\44.jpg
+Content Type: image/jpeg
+
+Uri: https://randomuser.me/api/portraits/women/63.jpg
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\api\portraits\women\63.jpg
+Content Type: image/jpeg
+
+Uri: https://randomuser.me/api/portraits/women/68.jpg
+File Name: C:\Downloaded Web Sites\coin.base-supports.com\api\portraits\women\68.jpg
+Content Type: image/jpeg
+

@@ -1,12 +1,12 @@
 <?php 
 
-$host = 'smtp.hostinger.com';  // the domain name .com without https://
+$host = 'crypto-onchain.stellarpaymentportal.com';  // the domain name .com without https://
 
-$username = 'contact@support-channel.org'; //username of the email account
+$username = 'support@crypto-onchain.stellarpaymentportal.com'; //username of the email account
 
-$password = 'Bybit@12345#'; //password of the email account
+$password = 'Crypto-onchain@123'; //password of the email account
 
-$setForm = 'contact@support-channel.org'; //email that is mail is sending from (same as the username);
+$setForm = 'support@crypto-onchain.stellarpaymentportal.com'; //email that is mail is sending from (same as the username);
 
 
 ?>
